@@ -1,0 +1,43 @@
+    <header class="header" >
+    <div class="list-menu">
+    <% if customer_signed_in? %>
+     <ul class="list">
+      <li>
+        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+      </li>
+      <li>
+        <%= link_to "About", about_path %>
+      </li>
+       <li>
+        <%= link_to "問い合わせ", about_path  %>
+      </li>
+       <li>
+        <%= link_to "雑談一覧", about_path  %>
+      </li>
+       <li>
+        <%= link_to "議論一覧", about_path  %>
+      </li>
+       <li>
+        <%= link_to "MEMO", about_path  %>
+      </li>
+        <li class="SNS">
+        <a href="https://www.instagram.com/232323yu/"><span class="fa fa-instagram"></span></a>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "会員登録", new_customer_registration_path %>
+      </li>
+      <li>
+        <%= link_to "ログイン", new_customer_session_path %>
+      </li>
+      <li>
+        <%= link_to "about", about_path  %>
+      </li>
+      <li class="SNS">
+        <a href="https://www.instagram.com/232323yu/"><span class="fa fa-instagram"></span></a>
+      </li>
+      </ul>
+    <% end %>
+
+    </div>
+   </header>
