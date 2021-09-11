@@ -69,3 +69,5 @@ group :production do
 end
 
 gem 'mailcatcher'
+
+gem 'jquery-rails'
