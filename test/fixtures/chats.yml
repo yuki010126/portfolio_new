@@ -3,7 +3,9 @@
 one:
   title: MyString
   introduction: MyText
+  customer_id: 1
 
 two:
   title: MyString
   introduction: MyText
+  customer_id: 1

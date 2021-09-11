@@ -5,7 +5,5 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 
-
-
-   has_many :chats, dependent: :destroy
+  has_many :chats, dependent: :destroy
 end
