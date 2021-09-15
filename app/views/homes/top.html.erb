@@ -1,4 +1,9 @@
+ <div class="wrrap">
 <%= render "devise/shared/tost" %>
 
 
 <p class="text1-top">(ロゴ入れ予定)〜足音~</p>
+</div>
+
+rails g model Bookmark customer:references discussion:references
+validates :customer_id, uniqueness: { scope: :discussion_id }

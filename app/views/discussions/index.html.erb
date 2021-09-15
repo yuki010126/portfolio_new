@@ -1,0 +1,24 @@
+
+ <div class="search-form">
+  <%= form_with url: discussions_path, method: :get, local: true do |f| %>
+    <%= f.text_field :keyword, value: @keyword %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
+
+ <div class="wrapper wrapper__bg">c
+  <div class="container">
+    <h1>議論ルーム</h1>
+    <%= link_to "スレッド新規作成", new_discussion_path %>
+     <h5>「足音」って何？については<%= link_to "About", about_path %>をご覧にください。</h5>
+     <h5>もっと詳しく教えてよ<%= link_to "Q&A", about_path %></h5>
+    <hr>
+    <div class="panel">
+    <h2>生産的なお話をしましょう</h2>
+    <% @discussions.each do |discussion| %>
+    <%= link_to discussion.title, discussion_path(discussion) %></br>
+    <% end %>
+   </div>
+  </div>
+ </div>
+

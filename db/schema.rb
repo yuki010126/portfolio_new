@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_11_085028) do
+ActiveRecord::Schema.define(version: 2021_09_15_071526) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email"
     t.string "encrypted_password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "discussion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_bookmarks_on_customer_id"
+    t.index ["discussion_id"], name: "index_bookmarks_on_discussion_id"
   end
 
   create_table "categoryes", force: :cascade do |t|
@@ -29,12 +38,27 @@ ActiveRecord::Schema.define(version: 2021_09_11_085028) do
     t.string "title"
     t.text "introduction"
     t.integer "customer_id"
+    t.string "nickname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text "comment"
+    t.text "content"
+    t.string "nickname"
+    t.integer "chat_id"
+    t.integer "customer_id"
+    t.integer "discussion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "phone_number", null: false
+    t.integer "subject", default: 0, null: false
+    t.text "message", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,13 +79,21 @@ ActiveRecord::Schema.define(version: 2021_09_11_085028) do
   create_table "discussions", force: :cascade do |t|
     t.string "title"
     t.text "introduction"
+    t.integer "customer_id"
+    t.string "nickname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "chat_id", null: false
+    t.integer "discussion_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_favorites_on_chat_id"
+    t.index ["customer_id"], name: "index_favorites_on_customer_id"
+    t.index ["discussion_id"], name: "index_favorites_on_discussion_id"
   end
 
   create_table "folders", force: :cascade do |t|
@@ -91,6 +123,16 @@ ActiveRecord::Schema.define(version: 2021_09_11_085028) do
   create_table "memos", force: :cascade do |t|
     t.string "memo_title"
     t.text "memo_introduction"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "opinions", force: :cascade do |t|
+    t.text "content"
+    t.string "nickname"
+    t.integer "chat_id"
+    t.integer "customer_id"
+    t.integer "discussion_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

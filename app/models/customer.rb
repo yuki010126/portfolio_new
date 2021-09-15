@@ -6,4 +6,6 @@ class Customer < ApplicationRecord
 
 
   has_many :chats, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+
 end

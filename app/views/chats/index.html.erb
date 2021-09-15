@@ -1,0 +1,32 @@
+
+
+
+
+<!--<div class="chat-list">-->
+<!--  <%# @chats.each do |chat| %>-->
+<!--    <%#= chat.title %>-->
+<!--  <%# end %>-->
+<!--</div>-->
+
+
+<div class="new"><%= render 'layouts/search' %></div>
+ <div class="wrapper wrapper__bg">
+  <div class="container">
+    <h1>雑談ルーム</h1>
+
+
+    <%= link_to "スレッド新規作成", new_chat_path %>
+     <h5>「足音」って何？については<%= link_to "About", about_path %>をご覧にください。</h5>
+     <h5>もっと詳しく教えてよ<%= link_to "Q&A", about_path %></h5>
+    <hr>
+    <div class="panel">
+    <h2>仲良くお話しましょう</h2>
+    <% @chats.each do |chat| %>
+    <%= link_to chat.title, chat_path(chat) %></br>
+    <% end %>
+   </div>
+  </div>
+ </div>
+
+
+

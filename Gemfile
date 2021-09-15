@@ -71,3 +71,7 @@ end
 gem 'mailcatcher'
 
 gem 'jquery-rails'
+
+gem 'rails-i18n'
+
+
