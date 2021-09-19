@@ -1,14 +1,18 @@
 
-<h5>※内容に間違いがなければ送信ボタンを押してください。</h5>
+
 <div class="form">
+  <h5>※内容に間違いがなければ送信ボタンを押してください。</h5>
 お名前
-<center><div class="one"><%= @contact.name %></div></center>
+<center><div class="one"><%= @contact.nickname %></div></center>
+メールアドレス
+<center><div class="one"><%= @contact.email %></div><center>
+用件
+<center><div class="one"><%= @contact.subject %></div><center>
 メッセージ
 <center><div class="two"><%= @contact.message %></div><center>
 
-
 <%= form_for(@contact) do |f| %>
-  <%= f.hidden_field :name %>
+  <%= f.hidden_field :nickname %>
   <%= f.hidden_field :email %>
   <%= f.hidden_field :phone_number %>
   <%= f.hidden_field :subject %>
@@ -16,7 +20,7 @@
   <div><%= f.submit '送信' %></div>
 <% end %>
 <%= form_for @contact, url: back_path do |f| %>
-  <%= f.hidden_field :name %>
+  <%= f.hidden_field :nickname %>
   <%= f.hidden_field :email %>
   <%= f.hidden_field :phone_number %>
   <%= f.hidden_field :subject %>

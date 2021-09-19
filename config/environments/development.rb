@@ -67,8 +67,8 @@ config.action_mailer.delivery_method = :smtp
       port: 587,
       address: 'smtp.gmail.com',
       domain: 'smtp.gmail.com',
-      user_name: ENV['kinyounokyuzitu@gmail.com'],
-      password: ENV['kinyou0823'],
+      user_name: ENV["SMTP_USERNAME"],
+      password: ENV['SMTP_PASSWORD'],
       enable_starttls_auto: true
   }
 end

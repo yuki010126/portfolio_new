@@ -1,9 +1,10 @@
 class CustomersController < ApplicationController
 
-  def show
+  def index
   # @customer = current_customer
       # @nickname = current_customer.nickname
-      @customer = Customer.find(params[:id])
+       @bookmarks = Bookmark.where(customer_id: current_customer.id)
+       @favorites = Favorite.where(customer_id: current_customer.id)
 
       # @chats = @customer.chats
 
@@ -12,11 +13,10 @@ class CustomersController < ApplicationController
   end
 
 
-
 # private
 
 #   def customer_params
 #     params.require(:customer).permit(:nickname)
 #   end
 
- end
+end

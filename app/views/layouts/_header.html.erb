@@ -1,46 +1,61 @@
-  <header class="header" >
-    <div class="list-menu">
+
+  <header>
+      <h4>
+        <a href="/">(ロゴ予定)~足音~</a>
+      </h4>
+
     <% if customer_signed_in? %>
-     <ul class="list">
+
+     <nav class="pc-nav">
+     <ul>
       <li>
-        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+       <%= link_to "■Logout", destroy_customer_session_path, method: :delete %>
       </li>
       <li>
-        <%= link_to "About", about_path %>
+       <%= link_to "■About", about_path %>
       </li>
         <li>
-        <%= link_to "マイページ"  %>
+        <%= link_to "■Mypage", customers_path %>
       </li>
        <li>
-        <%= link_to "問い合わせ", new_contact_path %>
+        <%= link_to "■Contact", new_contact_path %>
       </li>
-       <li>s
-        <%= link_to "雑談ルーム", chats_path  %>
-      </li>
-       <li>
-        <%= link_to "議論ルーム", discussions_path  %>
+        <li>
+        <%= link_to "■Q&A", answer_path  %>
       </li>
        <li>
-        <%= link_to "MEMOルーム", about_path  %>
+        <%= link_to "■ChatRoom", chats_path  %>
+      </li>
+       <li>
+        <%= link_to "■DiscussionRoom", discussions_path  %>
+      </li>
+       <li>
+        <%= link_to "■MemoRoom", about_path  %>
       </li>
         <li class="SNS">
         <a href="https://www.instagram.com/232323yu/"><span class="fa fa-instagram"></span></a>
       </li>
     <% else %>
       <li>
-        <%= link_to "会員登録", new_customer_registration_path %>
+       <%= link_to "■会員登録", new_customer_registration_path %>
       </li>
       <li>
-        <%= link_to "ログイン", new_customer_session_path %>
+       <%= link_to "■ログイン", new_customer_session_path %>
       </li>
       <li>
-        <%= link_to "about", about_path  %>
+        <%= link_to "■about", about_path  %>
+      </li>
+         <li>
+        <%= link_to "■F&Q", answer_path  %>
       </li>
       <li class="SNS">
-        <a href="https://www.instagram.com/232323yu/"><span class="fa fa-instagram"></span></a>
+        <a href="https://www.instagram.com/232323yu/">■<span class="fa fa-instagram"></span></a>
       </li>
       </ul>
+      </div>
     <% end %>
 
     </div>
+    </div>
    </header>
+

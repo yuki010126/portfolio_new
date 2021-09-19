@@ -1,6 +1,9 @@
  <%= link_to "スレッド一覧に戻る", chats_path %>
  <hr>
  <h1><%= @chat.title %></h1>
+     <% @chat.kinds.each do |kind| %>
+    カテゴリ:<%= kind.name %>
+    <% end %>
  <%= link_to "タイトルを編集する", edit_chat_path(@chat) %>
  <%= link_to "削除する", chat_path(@chat), method: :delete, data: { confirm: "本当に削除しますか？" } %>
  <hr>
@@ -28,6 +31,18 @@
   コメント: <%= f.text_area :content %> <br>
   <%= f.submit %>
  <% end %>
+
+
+   <tr>
+    <td>スレッド作成者:<%= @chat.customer.nickname %></td>
+    <td><%#= @discussion.title %></td>
+    <td><%#= @discussion.content %></td>
+    <% if @chat.favorited_by?(current_customer) %>
+      <td><%= link_to "ブックマークを外す", chat_favorites_path(@chat), method: :delete %></td>
+    <% else %>
+      <td><%= link_to "ブックマーク", chat_favorites_path(@chat), method: :chat %></td>
+    <% end %>
+  </tr>
 
 
 

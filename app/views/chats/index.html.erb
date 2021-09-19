@@ -1,23 +1,31 @@
 
-
-
-
 <!--<div class="chat-list">-->
 <!--  <%# @chats.each do |chat| %>-->
 <!--    <%#= chat.title %>-->
 <!--  <%# end %>-->
 <!--</div>-->
 
+<!--<div class="discussion">-->
 
-<div class="new"><%= render 'layouts/search' %></div>
- <div class="wrapper wrapper__bg">
+<div class="cate">
+ 【カテゴリー】
+  <div class="hope">
+    <% @kinds.each do |kind| %><br>
+      <%= link_to kind.name, kind_path(kind.id) %>
+    <% end %>
+  </div>
+</div>
+
+
+<%= render 'layouts/search' %>
+<div class="search1"><%= link_to "スレッドを作る", new_chat_path %></div>
+
   <div class="container">
-    <h1>雑談ルーム</h1>
+    <div class="wrapper">
+    <h1>ChatRoom</h1>
 
-
-    <%= link_to "スレッド新規作成", new_chat_path %>
      <h5>「足音」って何？については<%= link_to "About", about_path %>をご覧にください。</h5>
-     <h5>もっと詳しく教えてよ<%= link_to "Q&A", about_path %></h5>
+     <h5>もっと詳しく教えてよ<%= link_to "Q&A", answer_path  %></h5>
     <hr>
     <div class="panel">
     <h2>仲良くお話しましょう</h2>
@@ -27,6 +35,7 @@
    </div>
   </div>
  </div>
+ <!--</div>-->
 
 
 

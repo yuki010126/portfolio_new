@@ -45,6 +45,7 @@ class ChatsController < ApplicationController
 
   def index
     @chats = Chat.all
+    @kinds = Kind.all
     @chats = Chat.search(params[:keyword])
     @keyword = params[:keyword]
     render "index"
@@ -65,6 +66,7 @@ class ChatsController < ApplicationController
    @chat = Chat.find(params[:id])
    @comment = Comment.new
   end
+  
 
   def edit
     @chat = Chat.find(params[:id])
@@ -88,11 +90,16 @@ class ChatsController < ApplicationController
   render "index"
   end
 
+  def kind
+    @kind = chat.find_by(kind_id: params[:kind_id])
+    @Chats = chat.kind
+  end
+
 
   private
 
   def chat_params
-    params.require(:chat).permit(:title, :nickname, :customer_id)
+    params.require(:chat).permit(:title, :nickname, :customer_id, kind_ids: [])
   end
 
 end
