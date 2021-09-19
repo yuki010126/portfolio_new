@@ -1,7 +1,14 @@
  <%= link_to "スレッド一覧に戻る", discussions_path %>
  <hr>
   <%= form_with model:[@discussion], date: {remote: true} do |f| %>
-  タイトル: <%= f.text_field :title %> <br>
-  作成者名: <%= f.text_field :nickname %> <br>
-  <%= f.submit "送信" %>
+    タイトル: <%= f.text_field :title %> <br>
+    作成者名: <%= f.text_field :nickname %> <br>
+    <%= f.label :category, 'カテゴリ' %>
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+      <%= category.label do %>
+        <%= category.check_box %>
+        <%= category.text %>
+      <% end %>
+    <% end %>
+ 　　 <%= f.submit "送信" %>
  <% end %>

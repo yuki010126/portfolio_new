@@ -1,17 +1,19 @@
-
- <div class="search-form">
-  <%= form_with url: discussions_path, method: :get, local: true do |f| %>
-    <%= f.text_field :keyword, value: @keyword %>
-    <%= f.submit "検索" %>
-  <% end %>
+<div class="cate">
+ カテゴリー
+    <% @categories.each do |category| %><br>
+      <%= link_to category.name  %>
+    <% end %>
 </div>
 
- <div class="wrapper wrapper__bg">c
+<%= render 'layouts/search' %>
+<div class="search1"><%= link_to "スレッドを作る", new_discussion_path %></div>
+ <div class="wrapper">
   <div class="container">
-    <h1>議論ルーム</h1>
-    <%= link_to "スレッド新規作成", new_discussion_path %>
+    <div class="wrapper">
+    <h1>DiscussionRoom</h1>
+
      <h5>「足音」って何？については<%= link_to "About", about_path %>をご覧にください。</h5>
-     <h5>もっと詳しく教えてよ<%= link_to "Q&A", about_path %></h5>
+     <h5>もっと詳しく教えてよ<%= link_to "Q&A", answer_path  %></h5>
     <hr>
     <div class="panel">
     <h2>生産的なお話をしましょう</h2>

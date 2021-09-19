@@ -1,6 +1,10 @@
+ <div class="discussion">
  <%= link_to "スレッド一覧に戻る", discussions_path %>
  <hr>
  <h1><%= @discussion.title %></h1>
+    <% @discussion.categories.each do |category| %>
+    カテゴリ:<%= category.name %>
+    <% end %>
  <%= link_to "タイトルを編集する", edit_discussion_path(@discussion) %>
  <%= link_to "削除する", discussion_path(@discussion), method: :delete, data: { confirm: "本当に削除しますか？" } %>
  <hr>
@@ -27,17 +31,20 @@
  <%= form_for @opinion, url: discussion_opinions_path(@discussion, @opinion) do |f| %>
   名前: <%= f.text_field :nickname %> <br>
   コメント: <%= f.text_area :content %> <br>
+
   <%= f.submit %>
  <% end %>
 
   <tr>
-    <td><%= @discussion.customer.nickname %></td>
+    <td>スレッド作成:<%= @discussion.customer.nickname %></td>
     <!--<td><%#= @discussion.title %></td>-->
     <!--<td><%#= @discussion.content %></td>-->
-    <td><%= link_to "編集", edit_discussion_path(@discussion) %></td>
     <% if @discussion.bookmarked_by?(current_customer) %>
       <td><%= link_to "ブックマークを外す", discussion_bookmarks_path(@discussion), method: :delete %></td>
     <% else %>
       <td><%= link_to "ブックマーク", discussion_bookmarks_path(@discussion), method: :discussion %></td>
     <% end %>
   </tr>
+  </div>
+
+

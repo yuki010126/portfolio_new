@@ -1,0 +1,52 @@
+
+.cp_qa .cp_qanda {
+	line-height: 1.5;
+	position: relative;
+	margin: 0 0 2em 15em;
+	padding: 0 0 0 1em;
+	border-left: 1px solid #333333;
+}
+
+.cp_qa .quest {
+	font-weight: bold;
+	position: absolute;
+	bottom: 1em;
+	left: -15em;
+	display: inline-block;
+	width: 14em;
+	text-align: right;
+}
+
+.cp_qa .cp_qanda::before {
+	font-family: serif;
+	font-size: 4em;
+	position: absolute;
+	top: -0.4em;
+	left: -3.7em;
+	display: inline-block;
+	width: 9em;
+	content: 'Q';
+	opacity: 0.1;
+}
+
+.cp_qa .answer {
+	min-height: 5em;
+}
+
+.wrrapper {
+	padding-top: 15px;
+	padding-left: 60px;
+  	display: flex;
+	flex-wrap: wrap;
+	margin-left: -30px;
+	margin-top: 30px;
+	gap: 20px 40px;
+
+}
+
+.send {
+   padding-top: 30px;
+   text-align    : center;
+   font-size    : 30pt;
+}
+
