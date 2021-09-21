@@ -35,18 +35,97 @@
 
 .wrrapper {
 	padding-top: 15px;
-	padding-left: 60px;
-  	display: flex;
-	flex-wrap: wrap;
+	padding-left: 380px;
+
+// 	flex-wrap: wrap;
+
 	margin-left: -30px;
 	margin-top: 30px;
 	gap: 20px 40px;
+	   display:flex;
+    flex-wrap:wrap; 
 
 }
 
 .send {
-   padding-top: 30px;
-   text-align    : center;
-   font-size    : 30pt;
+  padding-top: 30px;
+  text-align    : center;
+  font-size    : 30pt;
 }
 
+
+// .quest {
+// 	padding-top: 200px;
+// 	padding-left: 380px;
+
+// }
+
+// /* Acordion Faq */
+// .tab {
+//   position: relative;
+//   margin-bottom: 1px;
+//   width: 70%;
+//   color: #fff;
+//   overflow: hidden;
+// }
+
+// input {
+//   position: absolute;
+//   opacity: 0;
+//   z-index: -1;
+// }
+// label {
+//   position: relative;
+//   display: block;
+//   padding: 0 0 0 1em;
+//   background: #000;
+//   font-weight: bold;
+//   line-height: 3;
+//   cursor: pointer;
+//   background-color: black;
+// 	opacity: 0.9;
+// }
+
+// .tab-content {
+//   max-height: 0;
+//   overflow: hidden;
+//   -webkit-transition: max-height .35s;
+//   -o-transition: max-height .35s;
+//   transition: max-height .35s;
+//   color: #000;
+// }
+
+// .tab-content p {
+//   margin: 1em;
+//   color: black;
+// }
+// /* :checked */
+// input:checked ~ .tab-content {
+//   max-height: 100%;
+// }
+// /* Icon */
+// label::after {
+//   position: absolute;
+//   right: 0;
+//   top: 0;
+//   display: block;
+//   width: 3em;
+//   height: 3em;
+//   line-height: 3;
+//   text-align: center;
+//   -webkit-transition: all .35s;
+//   -o-transition: all .35s;
+//   transition: all .35s;
+// }
+// input[type=checkbox] + label::after {
+//   content: "+";
+// }
+// input[type=radio] + label::after {
+//   content: "\25BC";
+// }
+// input[type=checkbox]:checked + label::after {
+//   transform: rotate(315deg);
+// }
+// input[type=radio]:checked + label::after {
+//   transform: rotateX(180deg);
+// }

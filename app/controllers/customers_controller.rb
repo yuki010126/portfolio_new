@@ -1,16 +1,19 @@
 class CustomersController < ApplicationController
 
   def index
-  # @customer = current_customer
-      # @nickname = current_customer.nickname
-       @bookmarks = Bookmark.where(customer_id: current_customer.id)
-       @favorites = Favorite.where(customer_id: current_customer.id)
-
-      # @chats = @customer.chats
-
-      # favorites = Favorite.where(customer_id: current_customer.id).pluck(:chat_id)
-      # @favorite_list = Chat.find(favorites)
+      @bookmarks = Bookmark.where(customer_id: current_customer.id)
+      @favorites = Favorite.where(customer_id: current_customer.id)
   end
+
+
+  def withdrawal
+    @customer = Customer.find(params[:id])
+    @customer.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
+  end
+
 
 
 # private
