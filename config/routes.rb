@@ -4,9 +4,16 @@ Rails.application.routes.draw do
 
   resources :customers
 
+  get '/customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+  patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
+
+
+
   resources :categories, only: [:show]
 
   resources :kinds, only: [:show]
+
+  resources :memos
 
   root to: 'homes#top'
   get 'top/index'

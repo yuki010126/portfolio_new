@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_19_084244) do
+ActiveRecord::Schema.define(version: 2021_09_21_111228) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 2021_09_19_084244) do
     t.string "nickname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_deleted"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -134,13 +135,6 @@ ActiveRecord::Schema.define(version: 2021_09_19_084244) do
     t.index ["hashname"], name: "index_hashtags_on_hashname", unique: true
   end
 
-  create_table "inquiries", force: :cascade do |t|
-    t.string "name"
-    t.string "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "kind_relations", force: :cascade do |t|
     t.integer "kind_id"
     t.integer "chat_id"
@@ -160,10 +154,12 @@ ActiveRecord::Schema.define(version: 2021_09_19_084244) do
   end
 
   create_table "memos", force: :cascade do |t|
-    t.string "memo_title"
-    t.text "memo_introduction"
+    t.string "title"
+    t.text "body"
+    t.integer "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_memos_on_customer_id"
   end
 
   create_table "opinions", force: :cascade do |t|
