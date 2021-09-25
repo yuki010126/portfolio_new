@@ -1,5 +1,5 @@
 class BookmarksController < ApplicationController
-    before_action :authenticate_customer!
+   
 
   def create
     @discussion = Discussion.find(params[:discussion_id])

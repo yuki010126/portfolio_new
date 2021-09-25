@@ -1,49 +1,50 @@
- <%= link_to "スレッド一覧に戻る", chats_path %>
- <hr>
- <h1><%= @chat.title %></h1>
-     <% @chat.kinds.each do |kind| %>
-    カテゴリ:<%= kind.name %>
+ <div class="flex_chat-box">
+  <div class="flex_chat-item-1">
+   <h1><%= @chat.title %></h1>
+      <% @chat.kinds.each do |kind| %>
+      カテゴリ:<%= kind.name %>
+      <% end %>
+      スレッドオーナー:<%= @chat.customer.nickname %></br>
+    <%= link_to "タイトルを編集する", edit_chat_path(@chat) %>
+    <%= link_to "削除する", chat_path(@chat), method: :delete, data: { confirm: "本当に削除しますか？" } %></br>
+    <%= link_to "スレッド一覧に戻る", chats_path %></br>
+
+    <% if @chat.favorited_by?(current_customer) %>
+     <%= link_to "ブックマークを外す", chat_favorites_path(@chat), method: :delete %>
+    <% else %>
+     <%= link_to "ブックマーク", chat_favorites_path(@chat), method: :chat %>
     <% end %>
- <%= link_to "タイトルを編集する", edit_chat_path(@chat) %>
- <%= link_to "削除する", chat_path(@chat), method: :delete, data: { confirm: "本当に削除しますか？" } %>
- <hr>
 
-  <div class="comments">
-  <% @chat.comments.each_with_index do |comment, index| %>
-  <div class="comment">
-  <div class="comment--heading">
-    <%= index + 1 %>：
-    <%= comment.nickname %>
-    <%= comment.created_at.strftime("%Y/%m/%d %H:%M:%S ") %>
-
-    <%= link_to "削除する", chat_comment_path(@chat, comment), method: :delete, data: { confirm: "本当に削除しますか?" } %> <br>
+  <%= form_for @comment, url: chat_comments_path(@chat, @comment) do |f| %>
+   <div class="flex_chat-item-2-1">
+    ニックネーム:</br> <%= f.text_field :nickname %> <br>
    </div>
-    <div class="comment-body">
+   <div class="flex_chat-item-2-2">
+    コメント:</br> <%= f.text_area :content, :size=>"40x20" %> <br>
+   <%= f.submit "書き込む", class: "button"  %>
+   </div>
+ <% end %>
+  </div>
+
+ <div class="flex_chat-item-3">
+
+   <% @chat.comments.each_with_index do |comment, index| %>
+   <div class="comment">
+
+     <%= index + 1 %>：
+     <%= comment.nickname %>
+     <%= comment.created_at.strftime("%Y/%m/%d %H:%M:%S ") %>
+     <%= link_to "削除する", chat_comment_path(@chat, comment), method: :delete, data: { confirm: "本当に削除しますか?" } %> <br>
+
+
     <%= comment.content %>
-    </div>
+
     </div>
   <% end %>
-  </div>
-  <hr>
 
- <%= form_for @comment, url: chat_comments_path(@chat, @comment) do |f| %>
-  名前: <%= f.text_field :nickname %> <br>
-  コメント: <%= f.text_area :content %> <br>
-  <%= f.submit %>
- <% end %>
+ </div>
 
-
-   <tr>
-    <td>スレッド作成者:<%= @chat.customer.nickname %></td>
-    <td><%#= @discussion.title %></td>
-    <td><%#= @discussion.content %></td>
-    <% if @chat.favorited_by?(current_customer) %>
-      <td><%= link_to "ブックマークを外す", chat_favorites_path(@chat), method: :delete %></td>
-    <% else %>
-      <td><%= link_to "ブックマーク", chat_favorites_path(@chat), method: :chat %></td>
-    <% end %>
-  </tr>
-
+</div>
 
 
 

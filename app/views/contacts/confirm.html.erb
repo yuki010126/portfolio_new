@@ -1,7 +1,9 @@
 
 
 <div class="form">
+
   <h5>※内容に間違いがなければ送信ボタンを押してください。</h5>
+<div class="group">
 お名前
 <center><div class="one"><%= @contact.nickname %></div></center>
 メールアドレス
@@ -27,4 +29,5 @@
   <%= f.hidden_field :message %>
   <div><%= f.submit '入力画面に戻る' %></div>
 <% end %>
+</div>
 </div>

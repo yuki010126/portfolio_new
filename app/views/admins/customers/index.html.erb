@@ -1,0 +1,27 @@
+ <div class="management0">
+  <%= form_with url: admins_customers_path, method: :get, local: true do |f| %>
+    <%= f.text_field :keyword, value: @keyword,  size: 40  %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
+
+<h2>▼会員一覧</h2>
+
+<div class="management1">
+<table>
+  <tr>
+    <th>氏名</th>
+    <th>メールアドレス</th>
+    <th>会員登録日時</th>
+    <th>ユーザー削除</th>
+  </tr>
+  <tr>
+    <% @customer.each do |customer| %>
+    <td><%= customer.nickname %></td>
+    <td><%= customer.email %></td>
+     <td><%= customer.created_at %></td>
+　　<td><%= link_to 'Delete', admins_customer_path(customer.id), method: :delete %></td>
+  </tr>
+   <% end %>
+</table>
+</div>

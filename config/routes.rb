@@ -1,12 +1,30 @@
 Rails.application.routes.draw do
 
-  devise_for :customers
+
+devise_for :admins, controllers: {
+  sessions:      'admins/sessions',
+  passwords:     'admins/passwords',
+  registrations: 'admins/registrations'
+}
+devise_for :customers, controllers: {
+  sessions:      'customers/sessions',
+  passwords:     'customers/passwords',
+  registrations: 'customers/registrations'
+}
+
+  root to: 'homes#top'
+  get 'top/index'
+  get "about" => "top#about" , as: "about"
+  get "answer" => "top#answer" , as: "answer"
+
+
+# scope module: "customers" do
 
   resources :customers
 
+
   get '/customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
   patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
-
 
 
   resources :categories, only: [:show]
@@ -14,12 +32,6 @@ Rails.application.routes.draw do
   resources :kinds, only: [:show]
 
   resources :memos
-
-  root to: 'homes#top'
-  get 'top/index'
-  get "about" => "top#about" , as: "about"
-  get "answer" => "top#answer" , as: "answer"
-
 
   resources :chats do
     resources :comments, only: [:create, :destroy]
@@ -30,6 +42,23 @@ Rails.application.routes.draw do
     resources :opinions, only: [:create, :destroy]
      resource :bookmarks, only: [:create, :destroy]
   end
+
+# end
+
+
+ namespace :admins do
+
+  resources :customers
+
+  resources :chats do
+    resources :comments, only: [:create, :destroy]
+  end
+
+  resources :discussions do
+    resources :opinions, only: [:create, :destroy]
+  end
+
+ end
 
   resources :hashtags, only: [:index, :show] #hashtagsコントローラー作成後記入
 
@@ -45,6 +74,8 @@ Rails.application.routes.draw do
 #   get '/discussion/hashtag' => 'discussions#hashtag'
 
  end
+
+
 
 
 

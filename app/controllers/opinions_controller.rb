@@ -1,6 +1,7 @@
 class OpinionsController < ApplicationController
 
 
+
   def show
      @opinion = Opinion.find(params[:id])
      @discussion = Discussion.includes(:opinions).find(params[:id])
@@ -11,6 +12,7 @@ class OpinionsController < ApplicationController
      @discussion = Discussion.find(params[:discussion_id])
      @opinion = Opinion.new(opinion_params)
      @opinion.discussion = @discussion
+     @opinion.customer_id = current_customer.id
      if @opinion.save
        redirect_to discussion_url(@discussion)
      else
