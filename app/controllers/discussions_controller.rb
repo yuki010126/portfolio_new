@@ -1,8 +1,9 @@
 class DiscussionsController < ApplicationController
+ 
 
    def index
-    @discussions = Discussion.all
-    @categories = Category.all
+    @discussions = Discussion.all.order(id: "DESC")
+    @categories = Category.all.order(id: "DESC")
     @discussions = Discussion.search(params[:keyword])
     @keyword = params[:keyword]
     render "index"
@@ -57,16 +58,16 @@ class DiscussionsController < ApplicationController
   #   @opinions   = @discussions.opinions
   # end
 
-  def hashtag
-    @customer = current_customer
-    if params[:name].nil?
-      @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.discussion.count}
-    else
-      @hashtag = Hashtag.find_by(hashname: params[:name])
-      @discussion = @hashtag.discussions
-      @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.discussions.count}
-    end
-  end
+  # def hashtag
+  #   @customer = current_customer
+  #   if params[:name].nil?
+  #     @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.discussion.count}
+  #   else
+  #     @hashtag = Hashtag.find_by(hashname: params[:name])
+  #     @discussion = @hashtag.discussions
+  #     @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.discussions.count}
+  #   end
+  # end
 
   def category
     @category = discussion.find_by(category_id: params[:category_id])

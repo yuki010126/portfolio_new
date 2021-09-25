@@ -19,5 +19,5 @@
   <%= form_with model: @chat ,local: true do |f| %>
   タイトル: <%= f.text_field :title %> <br>
   作成者名: <%= f.text_field :nickname %> <br>
-  <%= f.submit "送信" %>
+  <%= f.submit "送信", class: "button"  %>
  <% end %>

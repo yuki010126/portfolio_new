@@ -1,27 +1,29 @@
-
-<!--<div class="chat-list">-->
-<!--  <%# @chats.each do |chat| %>-->
-<!--    <%#= chat.title %>-->
-<!--  <%# end %>-->
-<!--</div>-->
-
-<!--<div class="discussion">-->
-
-<div class="cate">
- 【カテゴリー】
+<div class="chat-0">
+ 【カテゴリー】</br>
+ &nbsp;カテゴリー追加のご要望は<%= link_to "こちら", new_contact_path  %>
   <div class="hope">
     <% @kinds.each do |kind| %><br>
-      <%= link_to kind.name, kind_path(kind.id) %>
+      <%= kind.name %>
+      <% chat_ids = KindRelation.where(kind: kind).map(&:chat_id) %>
+      <% Chat.where(id: chat_ids).each do |chat| %></br>
+       <%= link_to chat.title, chat_path(chat)  %>
+      <% end %>
     <% end %>
   </div>
 </div>
 
 
-<%= render 'layouts/search' %>
+ <div class="search" >
+  <%= form_with url: chats_path, method: :get, local: true do |f| %>
+    <%= f.text_field :keyword, value: @keyword,  size: 40  %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
+
 <div class="search1"><%= link_to "スレッドを作る", new_chat_path %></div>
 
   <div class="container">
-    <div class="wrapper">
+    <!--<div class="wrapper">-->
     <h1>ChatRoom</h1>
 
      <h5>「足音」って何？については<%= link_to "About", about_path %>をご覧にください。</h5>
@@ -30,11 +32,13 @@
     <div class="panel">
     <h2>仲良くお話しましょう</h2>
     <% @chats.each do |chat| %>
-    <%= link_to chat.title, chat_path(chat) %></br>
+    <%= link_to chat.title, chat_path(chat) %>&nbsp &nbsp &nbsp
+    (<%= chat.comments.count %>)</br>
     <% end %>
    </div>
   </div>
  </div>
+ <!--<%#= paginate @chats %>-->
  <!--</div>-->
 
 

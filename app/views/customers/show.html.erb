@@ -1,4 +1,121 @@
 
+<h2>マイページ</h2>
 
+
+<div class="mypage1">
+<div class="mypage2">■<%= @nickname %>さんの参加スレッド</div>
+<br>
+ChatRoom(直近5件&書き込みした人を表示中)
+ <!--<%# @chats.each do |chat| %>-->
+
+  <%#= chat.title %>
+
+  <!--<%#= @customer.chats %>-->
+  <!--<%#= chat.content %>-->
+
+ <!-- <%# end %>-->
+</br>
+ <% @threads.each do |thread| %>
+ </br>
+  <%= link_to thread.title, chat_path(thread) %></br>
+  <!--スレッドオーナー:<%#= thread.nickname %><br>-->
+  <%#= comment_thread.comments.order(created_at: "DESC").limit(5).inspect %>
+  最新コメント</br>
+  <% thread.comments.order(created_at: "DESC").limit(5).each do |comment|  %>
+  ・<%= comment.nickname %>&nbsp&nbsp
+  <%= comment.content %><br>
+
+  <% end %>
+
+  <%#= comment_thread.inspect %>
+  <!--<%#= @customer.chats %>-->
+  <!--<%#= chat.content %>-->
+
+  <% end %>
+
+  <%#= @comment_threads.inspect %>
+
+<br>
+DiscussionRoom(直近5件&書き込みした人を表示中)
+ <% @discussions.each do |discussion| %>
+
+  <%#= chat.title %>
+
+  <!--<%#= @customer.chats %>-->
+  <!--<%#= chat.content %>-->
+
+  <% end %>
+</br>
+ <% @texts.each do |text| %>
+ </br>
+  <%= link_to text.title, discussion_path(text) %></br>
+  <!--スレッドオーナー:<%#= thread.nickname %><br>-->
+  <%#= comment_thread.comments.order(created_at: "DESC").limit(5).inspect %>
+  最新コメント</br>
+  <% text.opinions.order(created_at: "DESC").limit(5).each do |opinion|  %>
+  ・<%= opinion.nickname %>&nbsp&nbsp
+  <%= opinion.content %><br>
+
+  <% end %>
+
+  <%#= comment_thread.inspect %>
+  <!--<%#= @customer.chats %>-->
+  <!--<%#= chat.content %>-->
+
+  <% end %>
+
+ </div>
+
+<div class="mypage3">
+<div class="mypage4">  ■Bookmark一覧</div>
+</br>
+ChatRoom</br>
+  <thead>
+    <tr>
+     <th>投稿者名</th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  　 <th>タイトル</th>
+  　 </tr>
+  　 </thead>
+
+    <% @favorites.each do |favorite| %></br>
+    <tr>
+    <tbody>
+        <td><%= favorite.chat.customer.nickname %></td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+         <td>
+          <%= link_to chat_path(favorite.chat) do %>
+            <%= favorite.chat.title %>
+          <% end %>
+         </td>
+        <!--<td><%#= bookmark.discussion.body %></td>-->
+         </tr>
+    <% end %></br>
+   </tbody>
+</br>
+DiscussionRoom</br>
+  <thead>
+    <tr>
+     <th>投稿者名</th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  　 <th>タイトル</th>
+  　 </tr>
+  　 </thead>
+
+    <% @bookmarks.each do |bookmark| %></br>
+    <tr>
+    <tbody>
+        <td><%= bookmark.discussion.customer.nickname %></td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+         <td>
+          <%= link_to discussion_path(bookmark.discussion) do %>
+            <%= bookmark.discussion.title %>
+          <% end %>
+         </td>
+        <!--<td><%#= bookmark.discussion.body %></td>-->
+         </tr>
+    <% end %></br>
+</tbody>
+
+</div>
+
+
+<!--<%#= link_to "退会する" %>-->
 
 

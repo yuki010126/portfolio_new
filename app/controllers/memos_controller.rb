@@ -15,6 +15,9 @@ class MemosController < ApplicationController
   def new
     @memo = Memo.new
     @memos = Memo.all
+    @memos = Memo.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "new"
   end
 
   def edit
@@ -29,6 +32,13 @@ class MemosController < ApplicationController
       render :new
     end
   end
+
+  def search
+     @memos = Memo.search(params[:keyword])
+     @keyword = params[:keyword]
+     render "new"
+  end
+
 
   def destroy
     @memo = Memo.find(params[:id])

@@ -24,6 +24,7 @@ class CommentsController < ApplicationController
      @chat = Chat.find(params[:chat_id])
      @comment = Comment.new(comment_params)
      @comment.chat = @chat
+     @comment.customer_id = current_customer.id
      if @comment.save
        redirect_to chat_url(@chat)
      else

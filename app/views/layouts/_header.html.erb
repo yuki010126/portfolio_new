@@ -9,33 +9,44 @@
      <nav class="pc-nav">
      <ul>
       <li>
-       <%= link_to "■Logout", destroy_customer_session_path, method: :delete %>
+       <%= link_to "■ChatRoom", chats_path %>
       </li>
       <li>
-       <%= link_to "■About", about_path %>
+       <%= link_to "■DiscussionRoom", discussions_path %>
       </li>
         <li>
-        <%= link_to "■Mypage", customers_path %>
+        <%= link_to "■MemoRoom", new_memo_path %>
       </li>
        <li>
-        <%= link_to "■Contact", new_contact_path %>
+        <%= link_to "■about", about_path %>
       </li>
         <li>
         <%= link_to "■Q&A", answer_path  %>
       </li>
        <li>
-        <%= link_to "■ChatRoom", chats_path  %>
+        <%= link_to "■Mypage", "/customers/#{current_customer.id}" %>
+        <!--, customer_path(customer.id) -->
+        <!--"/customers/#{current_customer.id}"-->
       </li>
        <li>
-        <%= link_to "■DiscussionRoom", discussions_path  %>
+        <%= link_to "■Contact", new_contact_path  %>
       </li>
        <li>
-        <%= link_to "■MemoRoom", new_memo_path  %>
+        <%= link_to "■Logout", destroy_customer_session_path, method: :delete  %>
       </li>
         <li class="SNS">
         <a href="https://www.instagram.com/232323yu/"><span class="fa fa-instagram"></span></a>
       </li>
+
+    <% elsif admin_signed_in? %>
+
+      <li><%= link_to ' Customer', admins_customers_path %></li>
+      <li><%= link_to ' ChatRoom', admins_chats_path %></li>
+      <li><%= link_to ' DiscussionRoom', admins_discussions_path  %></li>
+      <li><%= link_to ' Logout', destroy_admin_session_path, method: :delete  %></li>
+
     <% else %>
+
       <li>
        <%= link_to "■会員登録", new_customer_registration_path %>
       </li>

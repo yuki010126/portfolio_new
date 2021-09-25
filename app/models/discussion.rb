@@ -2,8 +2,8 @@ class Discussion < ApplicationRecord
   belongs_to :customer
   has_many :opinions, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  has_many :hashtagposts, dependent: :destroy
-  has_many :hashtags, through: :hashtagposts
+  # has_many :hashtagposts, dependent: :destroy
+  # has_many :hashtags, through: :hashtagposts
   has_many :discussion_category_relations
   has_many :categories, through: :discussion_category_relations
 
