@@ -1,6 +1,7 @@
 <div class="chat-1">
  <%= link_to "スレッド一覧に戻る", chats_path %>
 </div>
+
  <%= form_with model:[@chat], date: {remote: true} do |f| %>
   <div class="chat-2">
    タイトル: <%= f.text_field :title %><br>

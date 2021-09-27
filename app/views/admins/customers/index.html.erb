@@ -19,9 +19,11 @@
     <% @customer.each do |customer| %>
     <td><%= customer.nickname %></td>
     <td><%= customer.email %></td>
-     <td><%= customer.created_at %></td>
+     <td><%= customer.created_at.strftime("%Y/%m/%d %H:%M:%S ")  %></td>
 　　<td><%= link_to 'Delete', admins_customer_path(customer.id), method: :delete %></td>
   </tr>
    <% end %>
 </table>
 </div>
+
+

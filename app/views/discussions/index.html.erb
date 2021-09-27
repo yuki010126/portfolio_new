@@ -12,16 +12,12 @@
   </div>
 </div>
 
-
-
  <div class="search">
   <%= form_with url: discussions_path, method: :get, local: true do |f| %>
     <%= f.text_field :keyword, value: @keyword,  size: 40  %>
     <%= f.submit "検索" %>
   <% end %>
 </div>
-
-
 
 <div class="search1"><%= link_to "スレッドを作る", new_discussion_path %></div>
 
@@ -41,6 +37,10 @@
     <% end %>
    </div>
   </div>
+ </div>
+
+ <div class ="discussion-6">
+  <%= paginate @discussions %>
  </div>
  <!--</div>-->
 

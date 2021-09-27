@@ -7,24 +7,9 @@ class Discussion < ApplicationRecord
   has_many :discussion_category_relations
   has_many :categories, through: :discussion_category_relations
 
-  # after_create do
-  #   discussion = Discussion.find_by(id: self.id)
-  #   hashtags  = self.content.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
-  #   hashtags.uniq.map do |hashtag|
-  #     tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
-  #     discussion.hashtags << tag
-  #   end
-  # end
-
-  # before_update do
-  #   discussion = Discussion.find_by(id: self.id)
-  #   discussion.hashtags.clear
-  #   hashtags = self.content.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
-  #   hashtags.uniq.map do |hashtag|
-  #     tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
-  #     discussion.hashtags << tag
-  #   end
-  # end
+  validates :title, presence: true
+  validates :nickname, presence: true
+  validates :introduction, presence: true
 
   # after_create do
   #   discussion = Discussion.find_by(id: id)

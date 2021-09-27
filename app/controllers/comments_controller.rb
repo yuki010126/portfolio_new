@@ -1,27 +1,25 @@
 class CommentsController < ApplicationController
+   before_action :authenticate_customer!
 
-# def index
-#     @comment = Comment.new
-# end
+  # def index
+  #   @comments = Comment.all.page(params[:page]).per(8)
+  # end
+
+
+  def new
+     @comment = current_customer.comments.build
+  end
 
   def show
      @comment = Comment.find(params[:id])
      @chat = Chat.includes(:comments).find(params[:id])
      @comment = Comment.new
+     # @comments= @chat.comments.page(params[:page]).per(8)
   end
-
-  # def create
-  #   @comments = comment.all
-  #   @comment = Comment.new(chat_params)
-  #   @comment.customer_id = current_customer.id
-  #   if @comment.save
-  #   else
-  #     redirect_to :new
-  #   end
-  # end
 
    def create
      @chat = Chat.find(params[:chat_id])
+     @comment = current_customer.comments.build(comment_params)
      @comment = Comment.new(comment_params)
      @comment.chat = @chat
      @comment.customer_id = current_customer.id

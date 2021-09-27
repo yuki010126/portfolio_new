@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+   before_action :authenticate_customer!
 
   def index
 
@@ -21,13 +22,25 @@ class CustomersController < ApplicationController
       @favorites = Favorite.where(customer_id: current_customer.id)
   end
 
+  def edit
+      @customer = Customer.find(params[:id])
+  end
+
+  def update
+      @customer = Customer.find(params[:id])
+       if current_customer== @customer
+       else
+        redirect_to root_url
+       end
+  end
+
 
   def withdrawal
-    @customer = Customer.find(params[:id])
-    @customer.update(is_deleted: true)
-    reset_session
-    flash[:notice] = "退会処理を実行いたしました"
-    redirect_to root_path
+      @customer = Customer.find(params[:id])
+      @customer.update(is_deleted: true)
+      reset_session
+      flash[:notice] = "退会処理を実行いたしました"
+      redirect_to root_path
   end
 
 

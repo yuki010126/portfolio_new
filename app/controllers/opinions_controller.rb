@@ -1,5 +1,5 @@
 class OpinionsController < ApplicationController
-
+  before_action :authenticate_customer!
 
 
   def show

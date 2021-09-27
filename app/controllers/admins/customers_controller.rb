@@ -1,4 +1,5 @@
 class Admins::CustomersController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
    @customer = Customer.all
@@ -14,9 +15,6 @@ class Admins::CustomersController < ApplicationController
    customer.destroy
    redirect_to admins_customers_path
   end
-
-
-
 
 
 end

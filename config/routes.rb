@@ -60,7 +60,7 @@ devise_for :customers, controllers: {
 
  end
 
-  resources :hashtags, only: [:index, :show] #hashtagsコントローラー作成後記入
+  # resources :hashtags, only: [:index, :show]
 
   resources :contacts, only: [:new, :create]
   post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'

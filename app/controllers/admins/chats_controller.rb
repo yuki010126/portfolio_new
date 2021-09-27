@@ -1,4 +1,5 @@
 class Admins::ChatsController < ApplicationController
+  before_action :authenticate_admin!
 
     def index
         @chats = Chat.all

@@ -5,6 +5,10 @@ class Chat < ApplicationRecord
   has_many :kind_relations
   has_many :kinds, through: :kind_relations
 
+  validates :title, presence: true
+  validates :nickname, presence: true
+  validates :introduction, presence: true
+
   def self.search(keyword)
     where(["title like? OR introduction like?", "%#{keyword}%", "%#{keyword}%"])
   end
@@ -16,6 +20,7 @@ class Chat < ApplicationRecord
   def self.kind
     chat.where(kind_id: @kind )
   end
+
 
   # validates :title, presence: true, length: { in: 4..127 }
   # validates :nickname, presence: true, length: { in: 1..30 }

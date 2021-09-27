@@ -1,10 +1,10 @@
 class DiscussionsController < ApplicationController
- 
+   before_action :authenticate_customer!
 
    def index
-    @discussions = Discussion.all.order(id: "DESC")
-    @categories = Category.all.order(id: "DESC")
-    @discussions = Discussion.search(params[:keyword])
+    @discussions = Discussion.all
+    @categories = Category.all
+    @discussions = Discussion.order('updated_at DESC').search(params[:keyword]).page(params[:page]).per(8)
     @keyword = params[:keyword]
     render "index"
    end
@@ -24,6 +24,7 @@ class DiscussionsController < ApplicationController
   def show
    @discussion = Discussion.find(params[:id])
    @opinion = Opinion.new
+   @opinions= @discussion.opinions.order('updated_at DESC').page(params[:page]).per(8)
   end
 
   def edit

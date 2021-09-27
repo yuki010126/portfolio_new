@@ -1,12 +1,16 @@
  <div class="flex_chat-box">
   <div class="flex_chat-item-1">
    <h1><%= @discussion.title %></h1>
+     <% if customer_signed_in? && @discussion.customer_id == current_customer.id %>
       <% @discussion.categories.each do |category| %>
       カテゴリ:<%= category.name %>
       <% end %>
       スレッドオーナー:<%= @discussion.customer.nickname %></br>
     <%= link_to "タイトルを編集する", edit_discussion_path(@discussion) %>
     <%= link_to "削除する", discussion_path(@discussion), method: :delete, data: { confirm: "本当に削除しますか？" } %></br>
+
+    <% end %>
+
     <%= link_to "スレッド一覧に戻る", discussions_path %></br>
 
     <% if @discussion.bookmarked_by?(current_customer) %>
@@ -29,23 +33,23 @@
 
  <div class="flex_chat-item-3">
 
-   <% @discussion.opinions.each_with_index do |opinion, index| %>
+   <% @opinions.each_with_index do |opinion, index| %>
    <div class="comment">
 
      <%= index + 1 %>：
      <%= opinion.nickname %>
      <%= opinion.created_at.strftime("%Y/%m/%d %H:%M:%S ") %>
-     <%= link_to "削除する", discussion_opinion_path(@discussion, opinion), method: :delete, data: { confirm: "本当に削除しますか?" } %> <br>
 
-
-    <%= opinion.content %>
-
+     <% if customer_signed_in? && opinion.customer_id == current_customer.id %>
+      <%= link_to "削除する", discussion_opinion_path(@discussion, opinion), method: :delete, data: { confirm: "本当に削除しますか?" } %> <br>
+     <% end %>
+     <%= opinion.content %>
     </div>
   <% end %>
-
  </div>
-
 </div>
 
-
+<div class="flex_discussion-item-4">
+ <%= paginate @opinions %>
+</div>
 
