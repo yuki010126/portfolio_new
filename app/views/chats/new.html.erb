@@ -1,38 +1,25 @@
-<!--<h1>雑談ルーム</h1>-->
-<!--<span>現在ログイン中のユーザー：<%#= current_customer.nickname %></span>-->
-<!--<%#= form_with model:[@chat], data: {remote: true} do |f| %>-->
-
-<!--    <div>-->
-<!--        <%#= f.label :タイトル %><br>-->
-<!--        <%#= f.text_field :title, autofocus: true, id: "text" %>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--        <%#= f.label :書き込み %><br>-->
-<!--        <%#= f.text_area :introduction %>-->
-<!--    </div>-->
-<!--    <div><%#= f.submit "投稿する" %></div>-->
-<!--<%# end %>-->
-<!--<table>-->
-<!--    <thead>-->
-<!--        <tr>-->
-<!--            <th>投稿者名</th>-->
-<!--            <th>タイトル</th>-->
-<!--            <th>本文</th>-->
-<!--            <th></th>-->
-<!--            <th></th>-->
-<!--            <th></th>-->
-<!--        </tr>-->
-<!--    </thead>-->
-<!--    <tbody id="chat">-->
-<!--      <%#= render 'chats/new', chats: @chats %>-->
-<!--    </tbody>-->
-<!--</table>-->
-
+<div class="chat-1">
  <%= link_to "スレッド一覧に戻る", chats_path %>
- <hr>
-  <%= form_with model:[@chat], date: {remote: true} do |f| %>
-  タイトル: <%= f.text_field :title %> <br>
-  作成者名: <%= f.text_field :nickname %> <br>
-  <%= f.submit "送信" %>
+</div>
+
+ <%= form_with model:[@chat], date: {remote: true} do |f| %>
+  <div class="chat-2">
+   タイトル: <%= f.text_field :title %><br>
+  </div>
+   <div class="chat-3">
+    作成者名: <%= f.text_field :nickname %><br>
+   </div>
+   <div class="chat-4">
+    <%= f.label :kind, 'カテゴリ' %>
+   </div>
+   <%= f.collection_check_boxes(:kind_ids, Kind.all, :id, :name) do |kind| %>
+     <%= kind.label do %>
+       <%= kind.check_box %>
+       <%= kind.text %>
+     <% end %>
+   <% end %>
+   <div class="chat-5">
+    <%= f.submit "送信", class: "button" %>
+   </div>
  <% end %>
 

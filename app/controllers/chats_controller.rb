@@ -1,61 +1,23 @@
 class ChatsController < ApplicationController
-
-
-
-#   def new
-#     @chat = Chat.new
-#     @chats = Chat.all
-#   end
-
-#   def create
-#     @chat = Chat.new(chat_params)
-#     @chat.customer_id = current_customer.id
-#     if @chat.save
-#       redirect_to new_chat_path
-#     else
-#       render :new
-#     end
-#   end
-
-#   def edit
-#   @chat = Chat.find(params[:id])
-#   end
-
-#   def update
-#     @chat = Chat.find(params[:id])
-#     if @chat.update(chat_params)
-#       redirect_to new_chat_path
-#     else
-#       render :new
-#     end
-#   end
-
-#   def destroy
-#     @chat = Chat.find(params[:id])
-#     @chat.destroy
-#     redirect_to request.referer
-#   end
-
-#   private
-#   def chat_params
-#     params.require(:chat).permit(:title,:introduction)
-#   end
-
-# end
+  before_action :authenticate_customer!
 
   def index
-    @chats = Chat.all
-    @chats = Chat.search(params[:keyword])
+    @chats = Chat.all.order('updated_at DESC')
+    # @page = Article.all.page(params[:page])
+    @kinds = Kind.all
+    @chats = Chat.order('updated_at DESC').search(params[:keyword]).page(params[:page]).per(8)
     @keyword = params[:keyword]
     render "index"
   end
 
   def new
     @chat = Chat.new
+    @chat = current_customer.chats.build
   end
 
   def create
     @chat = Chat.new(chat_params)
+    @chat = current_customer.chats.build(chat_params)
     @chat.customer_id = current_customer.id
     @chat.save
     redirect_to chats_path
@@ -64,6 +26,7 @@ class ChatsController < ApplicationController
   def show
    @chat = Chat.find(params[:id])
    @comment = Comment.new
+   @comments= @chat.comments.order('updated_at DESC').page(params[:page]).per(8)
   end
 
   def edit
@@ -88,11 +51,16 @@ class ChatsController < ApplicationController
   render "index"
   end
 
+  def kind
+    @kind = chat.find_by(kind_id: params[:kind_id])
+    @Chats = chat.kind
+  end
+
 
   private
 
   def chat_params
-    params.require(:chat).permit(:title, :nickname, :customer_id)
+    params.require(:chat).permit(:title, :nickname, :customer_id, kind_ids: [])
   end
 
 end

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(resource)
-    customer_path(resource.id)
+    root_path(resource.id)
   end
 
 
@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname])
   end
 end
 

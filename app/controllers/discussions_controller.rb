@@ -1,14 +1,14 @@
 class DiscussionsController < ApplicationController
-
-
+   before_action :authenticate_customer!
 
    def index
     @discussions = Discussion.all
-    @discussions = Discussion.search(params[:keyword])
+    @categories = Category.all
+    @discussions = Discussion.order('updated_at DESC').search(params[:keyword]).page(params[:page]).per(8)
     @keyword = params[:keyword]
     render "index"
-
    end
+
 
   def new
     @discussion = Discussion.new
@@ -24,6 +24,7 @@ class DiscussionsController < ApplicationController
   def show
    @discussion = Discussion.find(params[:id])
    @opinion = Opinion.new
+   @opinions= @discussion.opinions.order('updated_at DESC').page(params[:page]).per(8)
   end
 
   def edit
@@ -49,11 +50,35 @@ class DiscussionsController < ApplicationController
   render "index"
   end
 
+  # def hashtag
+  #   @customer = current_customer
+  #   @tag = Hashtag.find_by(hashname: params[:name])
+  #   @discussions = @tag.discussions.build
+  #   @discussion  = @tag.discussions.page(params[:page])
+  #   @opinion    = Opinion.new
+  #   @opinions   = @discussions.opinions
+  # end
+
+  # def hashtag
+  #   @customer = current_customer
+  #   if params[:name].nil?
+  #     @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.discussion.count}
+  #   else
+  #     @hashtag = Hashtag.find_by(hashname: params[:name])
+  #     @discussion = @hashtag.discussions
+  #     @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.discussions.count}
+  #   end
+  # end
+
+  def category
+    @category = discussion.find_by(category_id: params[:category_id])
+    @Discussions = discussion.category
+  end
 
   private
 
   def discussion_params
-    params.require(:discussion).permit(:title, :nickname, :customer_id)
+    params.require(:discussion).permit(:title, :nickname, :customer_id,  category_ids: [])
   end
 
 end

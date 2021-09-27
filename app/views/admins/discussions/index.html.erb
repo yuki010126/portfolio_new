@@ -1,0 +1,32 @@
+ <div class="management0">
+  <%= form_with url: admins_discussions_path, method: :get, local: true do |f| %>
+    <%= f.text_field :keyword, value: @keyword,  size: 40  %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
+
+<h2>DiscussionRoomスレッド一覧</h2>
+<div class="management1">
+<table>
+
+  <tr>
+   <th>ニックネーム</th>
+   <th>作成スレッド</th>
+   <th>作成日時</th>
+   <th>スレッド削除</th>
+  <th></th>
+ </tr>
+
+
+   <% @discussions.each do |discussion| %>
+   <tr>
+   <td><%= discussion.nickname %></td>
+   <td><%= discussion.title %></td>
+   <td><%= discussion.created_at.strftime("%Y/%m/%d %H:%M:%S ")  %></td>
+   <td><%= link_to 'Delete', admins_discussion_path(discussion.id), method: :delete %></td>
+
+   <% end %>
+   </tr>
+
+</table>
+</div>

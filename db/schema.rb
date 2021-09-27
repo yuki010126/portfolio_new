@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_15_071526) do
+ActiveRecord::Schema.define(version: 2021_09_25_044007) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email"
     t.string "encrypted_password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "remember_created_at"
   end
 
   create_table "bookmarks", force: :cascade do |t|
@@ -26,6 +27,12 @@ ActiveRecord::Schema.define(version: 2021_09_15_071526) do
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_bookmarks_on_customer_id"
     t.index ["discussion_id"], name: "index_bookmarks_on_discussion_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categoryes", force: :cascade do |t|
@@ -54,10 +61,10 @@ ActiveRecord::Schema.define(version: 2021_09_15_071526) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "nickname", null: false
     t.string "email", null: false
     t.string "phone_number", null: false
-    t.integer "subject", default: 0, null: false
+    t.text "subject", default: "0", null: false
     t.text "message", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -72,8 +79,16 @@ ActiveRecord::Schema.define(version: 2021_09_15_071526) do
     t.string "nickname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_deleted"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+  end
+
+  create_table "discussion_category_relations", force: :cascade do |t|
+    t.integer "discussion_id"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "discussions", force: :cascade do |t|
@@ -86,14 +101,12 @@ ActiveRecord::Schema.define(version: 2021_09_15_071526) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.integer "chat_id", null: false
-    t.integer "discussion_id", null: false
+    t.integer "customer_id"
+    t.integer "chat_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chat_id"], name: "index_favorites_on_chat_id"
     t.index ["customer_id"], name: "index_favorites_on_customer_id"
-    t.index ["discussion_id"], name: "index_favorites_on_discussion_id"
   end
 
   create_table "folders", force: :cascade do |t|
@@ -108,9 +121,30 @@ ActiveRecord::Schema.define(version: 2021_09_15_071526) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "inquiries", force: :cascade do |t|
+  create_table "hashtagposts", force: :cascade do |t|
+    t.integer "discussion_id"
+    t.integer "hashtag_id_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hashtag_id_id"], name: "index_hashtagposts_on_hashtag_id_id"
+  end
+
+  create_table "hashtags", force: :cascade do |t|
+    t.string "hashname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hashname"], name: "index_hashtags_on_hashname", unique: true
+  end
+
+  create_table "kind_relations", force: :cascade do |t|
+    t.integer "kind_id"
+    t.integer "chat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "kinds", force: :cascade do |t|
     t.string "name"
-    t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -121,10 +155,12 @@ ActiveRecord::Schema.define(version: 2021_09_15_071526) do
   end
 
   create_table "memos", force: :cascade do |t|
-    t.string "memo_title"
-    t.text "memo_introduction"
+    t.string "title"
+    t.text "body"
+    t.integer "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_memos_on_customer_id"
   end
 
   create_table "opinions", force: :cascade do |t|
