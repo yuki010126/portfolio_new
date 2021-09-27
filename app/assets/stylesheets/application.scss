@@ -63,18 +63,19 @@ li {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: url('4402640608_e602a6fe5c_k.jpeg')
-
+  background-image: image-url("4402640608_e602a6fe5c_k.jpeg")
 }
+
 
 // 背景の調整
 
  html, body {
   font-family: "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", "MS PMincho", serif;
   height: 100vh;
-  background: url('white_00026.jpeg')
-
+  background-image: image-url("white_00026.jpeg")
  }
+
+
 
 
 // 見出しの調整
@@ -108,24 +109,6 @@ input[type="text"] {
         border        : 1px solid #ccc;
     }
 }
-
-
-// .group {
-//   padding-top: 40px;
-// }
-
-
-// .one {
-// 	border: 1px solid #000000;
-// 	width: 500px;
-// 	height: 25px;
-// }
-
-// .two {
-// 	border: 1px solid #000000;
-// 	width: 500px;
-// 	height: 100px;
-// }
 
 
  .field {
@@ -197,7 +180,7 @@ input[type="text"] {
 
 // aboutページ
 .wrap {
-    background-image: url(10891456256_6aac4bc4d2_k.jpeg);
+    background-image: image-url("10891456256_6aac4bc4d2_k.jpeg");
     height: 100vh;
     padding-top: 40px;
 }
