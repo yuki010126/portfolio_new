@@ -60,18 +60,15 @@ devise_for :customers, controllers: {
 
  end
 
-  # resources :hashtags, only: [:index, :show]
-
   resources :contacts, only: [:new, :create]
   post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
   post 'contacts/back', to: 'contacts#back', as: 'back'
+  get 'contacts/confirm', to: 'contacts#confirm'
   get 'done', to: 'contacts#done', as: 'done'
 
 
   get 'search' => 'chats#search'
 
-#   get '/discussion/hashtag/:name' => 'discussions#hashtag'
-#   get '/discussion/hashtag' => 'discussions#hashtag'
 
  end
 

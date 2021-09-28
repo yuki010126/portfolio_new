@@ -1,20 +1,21 @@
  <div class="flex_chat-box">
   <div class="flex_chat-item-1">
    <h1><%= @discussion.title %></h1>
-     <% if customer_signed_in? && @discussion.customer_id == current_customer.id %>
-      <% @discussion.categories.each do |category| %>
-      カテゴリ:<%= category.name %>
-      <% end %>
-      スレッドオーナー:<%= @discussion.customer.nickname %></br>
-    <%= link_to "タイトルを編集する", edit_discussion_path(@discussion) %>
-    <%= link_to "削除する", discussion_path(@discussion), method: :delete, data: { confirm: "本当に削除しますか？" } %></br>
+       スレッドオーナー:<%= @discussion.customer.nickname %></br>
+       <% @discussion.categories.each do |category| %>
+       カテゴリ:<%= category.name %></br>
+       <% end %>
+
+    <% if customer_signed_in? && @discussion.customer_id == current_customer.id %>
+    <%= link_to "タイトルを編集する", edit_discussion_path(@discussion) %></br>
+    <%= link_to "スレッドを削除する", discussion_path(@discussion), method: :delete, data: { confirm: "本当に削除しますか？" } %></br>
 
     <% end %>
 
     <%= link_to "スレッド一覧に戻る", discussions_path %></br>
 
     <% if @discussion.bookmarked_by?(current_customer) %>
-     <%= link_to "ブックマークを外す", discussion_bookmarks_path(@discussion), method: :delete %>
+     <%= link_to "ブックマークを外す", discussion_bookmarks_path(@discussion), method: :delete  %>
     <% else %>
      <%= link_to "ブックマーク", discussion_bookmarks_path(@discussion), method: :discussion %>
 
@@ -38,10 +39,10 @@
 
      <%= index + 1 %>：
      <%= opinion.nickname %>
-     <%= opinion.created_at.strftime("%Y/%m/%d %H:%M:%S ") %>
+     <%= opinion.created_at.strftime("%Y/%m/%d %H:%M:%S ") %></br>
 
      <% if customer_signed_in? && opinion.customer_id == current_customer.id %>
-      <%= link_to "削除する", discussion_opinion_path(@discussion, opinion), method: :delete, data: { confirm: "本当に削除しますか?" } %> <br>
+      <%= link_to "削除する", discussion_opinion_path(@discussion, opinion), method: :delete, remote: true %> <br>
      <% end %>
      <%= opinion.content %>
     </div>

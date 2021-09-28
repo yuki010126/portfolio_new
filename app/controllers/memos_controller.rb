@@ -26,11 +26,8 @@ class MemosController < ApplicationController
 
   def update
     @memo = Memo.find(params[:id])
-    if @memo.update(memo_params)
-      redirect_to request.referer
-    else
-      render :new
-    end
+    @memo.update(memo_params)
+    redirect_to new_memo_path
   end
 
   def search

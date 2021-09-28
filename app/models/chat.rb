@@ -7,7 +7,7 @@ class Chat < ApplicationRecord
 
   validates :title, presence: true
   validates :nickname, presence: true
-  validates :introduction, presence: true
+  # validates :content, presence: true
 
   def self.search(keyword)
     where(["title like? OR introduction like?", "%#{keyword}%", "%#{keyword}%"])

@@ -3,9 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .discussion-0 {
-   padding-top: 50px;
-   padding-left: 20px;
-
+    padding-top: 90px;
+    padding-left: 80px;
+    float: left;
 }
 
 .search {
@@ -49,43 +49,44 @@
    padding-top: 60px;
 }
 
+.discussion-1-1 {
+   text-align: center;
+   padding-top: 50px;
+   font-size: 30px;
+}
+
+
 .discussion-2 {
    padding-top: 30px;
-   padding-left: 635px;
+   padding-left: 650px;
 }
 
 .discussion-3 {
    padding-top: 30px;
-   padding-left: 635px;
+   padding-left: 650px;
 }
 
 .discussion-4 {
    padding-top: 30px;
-   padding-left: 635px;
+   padding-left: 810px;
+}
+
+.discussion-4-1 {
+   padding-top: 20px;
+   text-align: center;
 }
 
 .discussion-5 {
    padding-top: 20px;
-   padding-left: 625px;
+   padding-left: 645px;
+}
+
+.discussion-5-1 {
+   padding-top: 20px;
+   text-align: center;
 }
 
 .discussion-6 {
    text-align: center;
 }
 
-
-
-// .discussion-6  {
-//     display      : inline-block;
-//     border-radius: 5%;
-//     font-size    : 15pt;
-//     text-align   : center;
-//     cursor       : pointer;
-//     padding      : 5px 5px;
-//     background   : #333;
-//     color        : #ffffff;
-//     line-height  : 1em;
-//     transition   : .3s;
-//     box-shadow   : 6px 6px 3px #666666;
-//     border       : 2px solid #333;
-// }

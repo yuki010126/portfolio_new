@@ -9,39 +9,20 @@ class Discussion < ApplicationRecord
 
   validates :title, presence: true
   validates :nickname, presence: true
-  validates :introduction, presence: true
+  
+  # validates :introduction, presence: true
 
-  # after_create do
-  #   discussion = Discussion.find_by(id: id)
-  #   # hashbodyに打ち込まれたハッシュタグを検出
-  #   hashtags = introduction.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
-  #   hashtags.uniq.map do |hashtag|
-  #     # ハッシュタグは先頭の#を外した上で保存
-  #     tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
-  #     discussion.hashtags << tag
-  #   end
-  # end
-
-  # before_update do
-  #   discussion = Discussion.find_by(id: id)
-  #   discussion.hashtags.clear
-  #   hashtags = introduction.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
-  #   hashtags.uniq.map do |hashtag|
-  #     tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
-  #     discussion.hashtags << tag
-  #   end
-  # end
 
   def bookmarked_by?(customer)
     bookmarks.where(customer_id: customer).exists?
   end
 
   def self.search(keyword)
-  where(["title like? OR introduction like?", "%#{keyword}%", "%#{keyword}%"])
+    where(["title like? OR introduction like?", "%#{keyword}%", "%#{keyword}%"])
   end
 
   def self.category
-  Discussion.where(category_id: @category )
+    Discussion.where(category_id: @category )
   end
 end
 

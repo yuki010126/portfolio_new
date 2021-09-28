@@ -23,11 +23,13 @@ class CommentsController < ApplicationController
      @comment = Comment.new(comment_params)
      @comment.chat = @chat
      @comment.customer_id = current_customer.id
-     if @comment.save
-       redirect_to chat_url(@chat)
-     else
-       render "chats/show"
-     end
+     @comment.save
+     redirect_to chat_url(@chat)
+     # if @comment.save
+     #   redirect_to chat_url(@chat)
+     # else
+     #   render "chats/show"
+     # end
    end
 
    def destroy

@@ -1,23 +1,20 @@
 <div class="memo-1">
-<div class="memo0">メモ帳編集ページ</div>
-
-<div class="memo4">
+  <div class="memo0">メモ編集ページ</div>
+   <div class="memo4">
  <!--<div class="memo2">-->
-<span>現在ログイン中のユーザー：<%= current_customer.nickname %></span>
-<%= form_for(@memo, url: memo_path(@memo)) do |f| %>
-    <div>
-        <%= f.label :タイトル %><br>
-        <%= f.text_field :title, autofocus: true, :placeholder =>"#{@memo.title}" %>
+      <span>現在ログイン中のユーザー：<%= current_customer.nickname %></span>
+        <%= form_for(@memo, url: memo_path(@memo)) do |f| %>
+          <div>
+            <%= f.label :タイトル %><br>
+            <%= f.text_field :title, autofocus: true, :placeholder =>"#{@memo.title}" %>
+          </div>
+          <div>
+            <%= f.label :本文 %><br>
+            <%= f.text_area :body, :placeholder =>"#{@memo.body}", :size=>"100x20" %>
+          </div>
+          <div><%= f.submit "更新する", class: "button"  %></div>
+       <% end %>
     </div>
-    <div>
-        <%= f.label :中身 %><br>
-        <%= f.text_area :body, :placeholder =>"#{@memo.body}", :size=>"100x20" %>
-    </div>
-    <div><%= f.submit "更新する", class: "button"  %></div>
-<% end %>
-
-
-</div>
 </div>
 
 

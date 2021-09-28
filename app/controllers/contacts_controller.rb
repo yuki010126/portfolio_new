@@ -1,11 +1,17 @@
 class ContactsController < ApplicationController
-  before_action :authenticate_customer!
+
 
    def new
       @contact = Contact.new
    end
 
   def confirm
+    if params[:contact].blank?
+      @contact = Contact.new
+      render :new
+      return
+    end
+
     @contact = Contact.new(contact_params)
     if @contact.invalid?
       render :new
@@ -33,6 +39,9 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:email, :nickname, :phone_number, :subject,:message )
+   #byebug
+    if params[:contact].present?
+     params.require(:contact).permit(:email, :nickname, :phone_number, :subject,:message )
+    end
   end
 end

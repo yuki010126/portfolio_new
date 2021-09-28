@@ -12,6 +12,7 @@ class DiscussionsController < ApplicationController
 
   def new
     @discussion = Discussion.new
+    @discussion = current_customer.discussions.build
   end
 
   def create
@@ -50,25 +51,6 @@ class DiscussionsController < ApplicationController
   render "index"
   end
 
-  # def hashtag
-  #   @customer = current_customer
-  #   @tag = Hashtag.find_by(hashname: params[:name])
-  #   @discussions = @tag.discussions.build
-  #   @discussion  = @tag.discussions.page(params[:page])
-  #   @opinion    = Opinion.new
-  #   @opinions   = @discussions.opinions
-  # end
-
-  # def hashtag
-  #   @customer = current_customer
-  #   if params[:name].nil?
-  #     @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.discussion.count}
-  #   else
-  #     @hashtag = Hashtag.find_by(hashname: params[:name])
-  #     @discussion = @hashtag.discussions
-  #     @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.discussions.count}
-  #   end
-  # end
 
   def category
     @category = discussion.find_by(category_id: params[:category_id])

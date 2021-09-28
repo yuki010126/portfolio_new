@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2021_09_25_044007) do
     t.string "nickname", null: false
     t.string "email", null: false
     t.string "phone_number", null: false
-    t.text "subject", default: "0", null: false
+    t.text "subject", null: false
     t.text "message", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -123,10 +123,10 @@ ActiveRecord::Schema.define(version: 2021_09_25_044007) do
 
   create_table "hashtagposts", force: :cascade do |t|
     t.integer "discussion_id"
-    t.integer "hashtag_id_id"
+    t.integer "hashtag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["hashtag_id_id"], name: "index_hashtagposts_on_hashtag_id_id"
+    t.index ["hashtag_id"], name: "index_hashtagposts_on_hashtag_id"
   end
 
   create_table "hashtags", force: :cascade do |t|

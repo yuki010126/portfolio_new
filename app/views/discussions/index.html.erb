@@ -1,47 +1,46 @@
 <div class="discussion-0">
- 【カテゴリー】</br>
- &nbsp;カテゴリー追加のご要望は<%= link_to "こちら", new_contact_path  %>
-  <div class="hope">
-    <% @categories.each do |category| %><br>
-      <%= category.name %>
-      <% chat_ids = DiscussionCategoryRelations.where(category: category).map(&:discussion_id) %>
-      <% Chat.where(id: discussion_ids).each do |discussion| %></br>
-       <%= link_to discussion.title, discussion_path(discussion)  %>
-      <% end %>
-    <% end %>
-  </div>
+  【カテゴリー】</br>
+    &nbsp;カテゴリー追加のご要望は<%= link_to "こちら", new_contact_path  %>
+      <div class="hope">
+        <% @categories.each do |category| %><br>
+          <%= category.name %>
+          <% discussion_ids = DiscussionCategoryRelation.where(category: category).map(&:discussion_id) %>
+          <% Discussion.where(id: discussion_ids).each do |discussion| %></br>
+            <%= link_to discussion.title, discussion_path(discussion)  %>
+          <% end %>
+        <% end %>
+      </div>
 </div>
 
  <div class="search">
-  <%= form_with url: discussions_path, method: :get, local: true do |f| %>
+   <%= form_with url: discussions_path, method: :get, local: true do |f| %>
     <%= f.text_field :keyword, value: @keyword,  size: 40  %>
     <%= f.submit "検索" %>
-  <% end %>
+   <% end %>
 </div>
 
 <div class="search1"><%= link_to "スレッドを作る", new_discussion_path %></div>
 
-  <div class="container">
+<div class="container">
     <!--<div class="wrapper">-->
-    <h1>DiscussionRoom</h1>
-
-     <h5>「足音」って何？については<%= link_to "About", about_path %>をご覧にください。</h5>
-     <h5>もっと詳しく教えてよ<%= link_to "Q&A", answer_path  %></h5>
+  <h1>DiscussionRoom</h1>
+    <h5>「足音」って何？については<%= link_to "About", about_path %>をご覧にください。</h5>
+    <h5>もっと詳しく教えてよ<%= link_to "Q&A", answer_path  %></h5>
     <hr>
-    <div class="panel">
+     <div class="panel">
     <h2>生産的なお話をしましょう</h2>
-    <% @discussions.each do |discussion| %>
-    <%= link_to discussion.title, discussion_path(discussion) %> &nbsp &nbsp &nbsp
-    (<%= discussion.opinions.count %>)</br>
+      <% @discussions.each do |discussion| %>
+        <%= link_to discussion.title, discussion_path(discussion) %> &nbsp &nbsp &nbsp
+        (<%= discussion.opinions.count %>)</br>
     <!--<%#= current_customer.discussions.where('created_at > ?', Date.today).count %>-->
-    <% end %>
-   </div>
-  </div>
+      <% end %>
+    </div>
  </div>
+</div>
 
- <div class ="discussion-6">
+<div class ="discussion-6">
   <%= paginate @discussions %>
- </div>
+</div>
  <!--</div>-->
 
 

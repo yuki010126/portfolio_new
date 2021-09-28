@@ -13,11 +13,13 @@ class OpinionsController < ApplicationController
      @opinion = Opinion.new(opinion_params)
      @opinion.discussion = @discussion
      @opinion.customer_id = current_customer.id
-     if @opinion.save
-       redirect_to discussion_url(@discussion)
-     else
-       render "discussions/show"
-     end
+     @opinion.save
+     redirect_to discussion_url(@discussion)
+     # if @opinion.save
+     #   redirect_to discussion_url(@discussion)
+     # else
+     #   render "discussions/show"
+     # end
    end
 
    def destroy

@@ -1,25 +1,27 @@
 <div class="chat-1">
- <%= link_to "スレッド一覧に戻る", chats_path %>
+  <%= link_to "スレッド一覧に戻る", chats_path %>
 </div>
 
- <%= form_with model:[@chat], date: {remote: true} do |f| %>
+<%= form_with model:[@chat], date: {remote: true} do |f| %>
   <div class="chat-2">
-   タイトル: <%= f.text_field :title %><br>
+    タイトル: <%= f.text_field :title %><br>
   </div>
-   <div class="chat-3">
+  <div class="chat-3">
     作成者名: <%= f.text_field :nickname %><br>
-   </div>
-   <div class="chat-4">
+  </div>
+  <div class="chat-4">
     <%= f.label :kind, 'カテゴリ' %>
-   </div>
-   <%= f.collection_check_boxes(:kind_ids, Kind.all, :id, :name) do |kind| %>
-     <%= kind.label do %>
-       <%= kind.check_box %>
-       <%= kind.text %>
-     <% end %>
-   <% end %>
-   <div class="chat-5">
+  </div>
+  <div class="chat-4-1">
+    <%= f.collection_check_boxes(:kind_ids, Kind.all, :id, :name) do |kind| %>
+      <%= kind.label do %>
+        <%= kind.check_box %>
+        <%= kind.text %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="chat-5-1">
     <%= f.submit "送信", class: "button" %>
-   </div>
+  </div>
  <% end %>
 
