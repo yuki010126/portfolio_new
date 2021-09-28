@@ -44,7 +44,8 @@
      <% if customer_signed_in? && opinion.customer_id == current_customer.id %>
       <%= link_to "削除する", discussion_opinion_path(@discussion, opinion), method: :delete, remote: true %> <br>
      <% end %>
-     <%= opinion.content %>
+     <%#= opinion.content %>
+     <%= sanitize(opinion.content.gsub("\n", "<br>")) %>
     </div>
   <% end %>
  </div>
