@@ -24,7 +24,6 @@
       </div>
       <div class="flex_chat-item-2-2">
         <%#= safe_join(@comments.split("\n"),tag(:br)) %>
-        <%= simple_format(@comment.content) %>
         コメント:</br> <%= f.text_area :content, :size=>"40x20" %> <br>
         <%= f.submit "書き込む", class: "button"  %>
       </div>
@@ -42,7 +41,8 @@
          <% if customer_signed_in? && comment.customer_id == current_customer.id %>
            <%= link_to "削除する", chat_comment_path(@chat, comment), method: :delete, remote: true  %> <br>
          <% end %>
-           <%= comment.content %>
+           <%#= simple_format(h(comment.content).html_safe) %>
+           <%= sanitize(comment.content.gsub("\n", "<br>")) %>
         </div>
      <% end %>
    </div>
