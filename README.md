@@ -30,8 +30,8 @@
 <...>
 
 ## チャレンジ要素一覧
-https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0
-<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0">こちらへ</a></h4>
+
+チャレンジ要素は<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0">こちらから</a></h4>
 
 ## 開発環境
 - OS：Linux(CentOS)
