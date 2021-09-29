@@ -4,7 +4,7 @@ class DiscussionsController < ApplicationController
    def index
     @discussions = Discussion.all
     @categories = Category.all
-    @discussions = Discussion.order('updated_at DESC').search(params[:keyword]).page(params[:page]).per(8)
+    @discussions = Discussion.order('updated_at DESC').search(params[:keyword]).page(params[:page]).per(15)
     @keyword = params[:keyword]
     render "index"
    end

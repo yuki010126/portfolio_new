@@ -1,6 +1,7 @@
 <div class="discussion-0">
   【カテゴリー】</br>
     &nbsp;カテゴリー追加のご要望は<%= link_to "こちら", new_contact_path  %>
+    <div style="width:250px;height:650px;overflow:scroll;">
       <div class="hope">
         <% @categories.each do |category| %><br>
           <%= category.name %>
@@ -10,7 +11,8 @@
           <% end %>
         <% end %>
       </div>
-</div>
+     </div>
+  </div>
 
  <div class="search">
    <%= form_with url: discussions_path, method: :get, local: true do |f| %>

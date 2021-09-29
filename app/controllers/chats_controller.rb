@@ -5,7 +5,7 @@ class ChatsController < ApplicationController
     @chats = Chat.all.order('updated_at DESC')
     # @page = Article.all.page(params[:page])
     @kinds = Kind.all
-    @chats = Chat.order('updated_at DESC').search(params[:keyword]).page(params[:page]).per(20)
+    @chats = Chat.order('updated_at DESC').search(params[:keyword]).page(params[:page]).per(15)
     @keyword = params[:keyword]
     render "index"
   end
