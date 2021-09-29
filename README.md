@@ -27,10 +27,13 @@
 新しいことを始めたい時、インプットしたい時、ひらめきをアウトプットしたい時</br>
 
 ## 設計書
-<...>
+ER図は<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0">こちらから。</a></br>
+UIFlowsは<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0">こちらから。</a></br>
+テーブル定義書は<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0">こちらから。</a></br>
+アプリケーション詳細設計<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0">こちらから。</a>
 
 ## チャレンジ要素一覧
-https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0
+チャレンジ要素は<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0">こちらから。</a></h4>
 
 ## 開発環境
 - OS：Linux(CentOS)
