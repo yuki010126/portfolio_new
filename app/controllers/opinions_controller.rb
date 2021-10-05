@@ -13,13 +13,20 @@ class OpinionsController < ApplicationController
      @opinion = Opinion.new(opinion_params)
      @opinion.discussion = @discussion
      @opinion.customer_id = current_customer.id
-     @opinion.save
-     redirect_to discussion_url(@discussion)
+     # @opinion.save
+     # redirect_to discussion_url(@discussion)
      # if @opinion.save
      #   redirect_to discussion_url(@discussion)
      # else
      #   render "discussions/show"
      # end
+     @opinion.score = Language.get_data(opinion_params[:content])
+      if  @opinion.score > -0.3
+        @opinion.save
+        redirect_to discussion_url(@discussion)
+      else
+        redirect_to discussion_url(@discussion)
+      end
    end
 
    def destroy
