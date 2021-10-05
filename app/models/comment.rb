@@ -3,5 +3,5 @@ class Comment < ApplicationRecord
   belongs_to :customer
   
   validates :nickname, presence: true
-  validates :content, presence: true
+  # validates :content, presence: true
 end

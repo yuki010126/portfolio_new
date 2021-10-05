@@ -26,7 +26,7 @@ class ChatsController < ApplicationController
   def show
    @chat = Chat.find(params[:id])
    @comment = Comment.new
-   @comments= @chat.comments.order('updated_at DESC').page(params[:page]).per(8)
+   @comments= @chat.comments.order('updated_at DESC').page(params[:page]).per(10)
   end
 
   def edit

@@ -26,6 +26,8 @@
         <%#= safe_join(@comments.split("\n"),tag(:br)) %>
         コメント:</br> <%= f.text_area :content, :size=>"40x20" %> <br>
         <%= f.submit "書き込む", class: "button"  %>
+        <div class="api"></br>【注意】<%= link_to "内容よっては書き込みが行えません！", answer_path %></div>
+
       </div>
     <% end %>
    </div>
@@ -36,14 +38,16 @@
        <div class="comment">
          <%= index + 1 %>：
          <%= comment.nickname %>
-         <%= comment.created_at.strftime("%Y/%m/%d %H:%M:%S ") %></br>
-
+         <%= comment.created_at.strftime("%Y/%m/%d %H:%M:%S ") %>
+         <!--スコア<%#= comment.score %>-->
          <% if customer_signed_in? && comment.customer_id == current_customer.id %>
            <%= link_to "削除する", chat_comment_path(@chat, comment), method: :delete, remote: true  %> <br>
          <% end %>
            <%#= simple_format(h(comment.content).html_safe) %>
            <%= sanitize(comment.content.gsub("\n", "<br>")) %>
+
         </div>
+        <hr>
      <% end %>
    </div>
 </div>

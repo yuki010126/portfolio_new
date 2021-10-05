@@ -28,6 +28,7 @@
    <div class="flex_chat-item-2-2">
     コメント:</br> <%= f.text_area :content, :size=>"40x20" %> <br>
    <%= f.submit "書き込む", class: "button"  %>
+   <div class="api"></br>【注意】<%= link_to "内容よっては書き込みが行えません！", answer_path %></div>
    </div>
  <% end %>
   </div>
@@ -39,14 +40,15 @@
 
      <%= index + 1 %>：
      <%= opinion.nickname %>
-     <%= opinion.created_at.strftime("%Y/%m/%d %H:%M:%S ") %></br>
-
+     <%= opinion.created_at.strftime("%Y/%m/%d %H:%M:%S ") %>
+　　　<!--スコア<%#= opinion.score %>-->
      <% if customer_signed_in? && opinion.customer_id == current_customer.id %>
       <%= link_to "削除する", discussion_opinion_path(@discussion, opinion), method: :delete, remote: true %> <br>
      <% end %>
      <%#= opinion.content %>
      <%= sanitize(opinion.content.gsub("\n", "<br>")) %>
     </div>
+    <hr>
   <% end %>
  </div>
 </div>

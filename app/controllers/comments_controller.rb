@@ -6,16 +6,16 @@ class CommentsController < ApplicationController
   # end
 
 
-  def new
+   def new
      @comment = current_customer.comments.build
-  end
+   end
 
-  def show
+   def show
      @comment = Comment.find(params[:id])
      @chat = Chat.includes(:comments).find(params[:id])
-     @comment = Comment.new
+     # @comment = Comment.new
      # @comments= @chat.comments.page(params[:page]).per(8)
-  end
+   end
 
    def create
      @chat = Chat.find(params[:chat_id])
@@ -23,13 +23,21 @@ class CommentsController < ApplicationController
      @comment = Comment.new(comment_params)
      @comment.chat = @chat
      @comment.customer_id = current_customer.id
-     @comment.save
-     redirect_to chat_url(@chat)
+     # @comment.score = Language.get_data(comment_params[:content])
+     # @comment.save
+     # redirect_to chat_url(@chat)
      # if @comment.save
      #   redirect_to chat_url(@chat)
      # else
      #   render "chats/show"
      # end
+     @comment.score = Language.get_data(comment_params[:content])
+      if  @comment.score > -0.3
+        @comment.save
+        redirect_to chat_url(@chat)
+      else
+        redirect_to chat_url(@chat)
+      end
    end
 
    def destroy
@@ -37,7 +45,6 @@ class CommentsController < ApplicationController
     Comment.find_by(chat_id: params[:chat_id], id: params[:id]).destroy
     redirect_to chat_url(@chat)
    end
-
 
    private
 
