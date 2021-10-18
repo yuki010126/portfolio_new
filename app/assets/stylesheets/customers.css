@@ -1,83 +1,78 @@
-@charset "UTF-8";
-* {
-  margin: 0;
-  padding: 0; }
+  .wrap {
+      text-align: center; }
 
-.wrap {
-  text-align: center; }
+  .content {
+      width: auto;
+      height: auto;
+      text-align: left;
+      display: inline-block;
+  }
 
-.content {
-  width: auto;
-  height: auto;
-  text-align: left;
-  display: inline-block; }
+  p {
+      font-size: 10px;
+      color: #333;
+      line-height: 3em; }
 
-p {
-  font-size: 10px;
-  color: #333;
-  line-height: 3em; }
+  以下フェードイン表示の指定
+  .fadein {
+      opacity: 0;
+      animation: fadein 6s ease forwards; }
 
-/*以下フェードイン表示の指定*/
-.fadein {
-  opacity: 0;
-  animation: fadein 6s ease forwards; }
+  @keyframes fadein {
+      100% {
+      opacity: 1; } }
+      .txt01 {
+        animation-delay: 1s; }
 
-@keyframes fadein {
-  100% {
-    opacity: 1; } }
-/*以下遅延の指定*/
-.txt01 {
-  animation-delay: 1s; }
+      .txt02 {
+        animation-delay: 2s; }
 
-.txt02 {
-  animation-delay: 2s; }
+      .txt03 {
+        animation-delay: 3s; }
 
-.txt03 {
-  animation-delay: 3s; }
+      .txt04 {
+        animation-delay: 4s; }
 
-.txt04 {
-  animation-delay: 4s; }
+      .txt05 {
+        animation-delay: 5s; }
 
-.txt05 {
-  animation-delay: 5s; }
+      .txt06 {
+        animation-delay: 6s; }
 
-.txt06 {
-  animation-delay: 6s; }
+      .txt07 {
+        animation-delay: 7s; }
 
-.txt07 {
-  animation-delay: 7s; }
+      .txt08 {
+        animation-delay: 8s; }
 
-.txt08 {
-  animation-delay: 8s; }
+      .txt09 {
+        animation-delay: 9s; }
 
-.txt09 {
-  animation-delay: 9s; }
+      .txt10 {
+        animation-delay: 10s; }
 
-.txt10 {
-  animation-delay: 10s; }
+      .txt11 {
+        animation-delay: 11s; }
 
-.txt11 {
-  animation-delay: 11s; }
+      .txt12 {
+        animation-delay: 12s; }
 
-.txt12 {
-  animation-delay: 12s; }
+      .txt13 {
+        animation-delay: 13s; }
 
-.txt13 {
-  animation-delay: 13s; }
+      .txt14 {
+        animation-delay: 14s; }
 
-.txt14 {
-  animation-delay: 14s; }
+      .txt15 {
+        animation-delay: 15s; }
 
-.txt15 {
-  animation-delay: 15s; }
+      .txt16 {
+        animation-delay: 16s; }
 
-.txt16 {
-  animation-delay: 16s; }
+      .txt17 {
+        animation-delay: 17s; }
 
-.txt17 {
-  animation-delay: 17s; }
+      .txt17 {
+        animation-delay: 17s; }
 
-.txt17 {
-  animation-delay: 17s; }
 
-/*# sourceMappingURL=customers.css.map */

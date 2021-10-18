@@ -1,57 +1,53 @@
-<div class="flex_chat-box">
-  <div class="flex_chat-item-1">
+<div class="chat-box">
+  <div class="chat-item-1">
     <h1><%= @chat.title %></h1>
-        スレッドオーナー:<%= @chat.customer.nickname %></br>
+          スレッド開設日:<%= @chat.created_at.strftime("%Y/%m/%d ") %></br>
+          スレッドオーナー:<%= @chat.customer.nickname %></br>
         <% @chat.kinds.each do |kind| %>
-        カテゴリ:<%= kind.name %></br>
+          カテゴリ:<%= kind.name %></br>
         <% end %>
-      <% if customer_signed_in? && @chat.customer_id == current_customer.id %>
+        <% if customer_signed_in? && @chat.customer_id == current_customer.id %>
           <%= link_to "タイトルを編集する", edit_chat_path(@chat) %></br>
           <%= link_to "スレッドを削除する", chat_path(@chat), method: :delete, data: { confirm: "本当に削除しますか？" } %></br>
-      <% end %>
+        <% end %>
+        <%= link_to "スレッド一覧に戻る", chats_path %></br>
+          <% if @chat.favorited_by?(current_customer) %>
+            <%= link_to "ブックマークを外す", chat_favorites_path(@chat), method: :delete  %>
+          <% else %>
+            <%= link_to "ブックマーク", chat_favorites_path(@chat), method: :chat  %>
+          <% end %>
 
-      <%= link_to "スレッド一覧に戻る", chats_path %></br>
+        <%= form_for @comment, url: chat_comments_path(@chat, @comment) do |f| %>
+          <div class="chat-item-2-1">
+            ニックネーム:</br> <%= f.text_field :nickname %> <br>
+          </div>
+          <div class="chat-item-2-2">
+            コメント:</br> <%= f.text_area :content, :size=>"40x20" %> <br>
+            <%= f.submit "書き込む", class: "button"  %>
+            <div class="api"></br>【注意】<%= link_to "内容よっては書き込みが行えません！", answer_path %>
+            </div>
+　        </div>
+        <% end %>
+    </div>
 
-      <% if @chat.favorited_by?(current_customer) %>
-        <%= link_to "ブックマークを外す", chat_favorites_path(@chat), method: :delete  %>
-      <% else %>
-        <%= link_to "ブックマーク", chat_favorites_path(@chat), method: :chat  %>
-      <% end %>
-
-    <%= form_for @comment, url: chat_comments_path(@chat, @comment) do |f| %>
-      <div class="flex_chat-item-2-1">
-        ニックネーム:</br> <%= f.text_field :nickname %> <br>
-      </div>
-      <div class="flex_chat-item-2-2">
-        <%#= safe_join(@comments.split("\n"),tag(:br)) %>
-        コメント:</br> <%= f.text_area :content, :size=>"40x20" %> <br>
-        <%= f.submit "書き込む", class: "button"  %>
-        <div class="api"></br>【注意】<%= link_to "内容よっては書き込みが行えません！", answer_path %></div>
-
-      </div>
-    <% end %>
-   </div>
-
-
-   <div class="flex_chat-item-3">
+  <div class="chat-item-3">
      <% @comments.each_with_index do |comment, index| %>
-       <div class="comment">
-         <%= index + 1 %>：
-         <%= comment.nickname %>
-         <%= comment.created_at.strftime("%Y/%m/%d %H:%M:%S ") %>
-         <!--スコア<%#= comment.score %>-->
-         <% if customer_signed_in? && comment.customer_id == current_customer.id %>
-           <%= link_to "削除する", chat_comment_path(@chat, comment), method: :delete, remote: true  %> <br>
-         <% end %>
-           <%#= simple_format(h(comment.content).html_safe) %>
-           <%= sanitize(comment.content.gsub("\n", "<br>")) %>
-
-        </div>
-        <hr>
+       <%= index + 1 %>：
+       <%= comment.nickname %>
+       <%= comment.created_at.strftime("%Y/%m/%d %H:%M:%S ") %>
+       <!--スコア<%#= comment.score %>-->
+       <% if customer_signed_in? && comment.customer_id == current_customer.id %>
+         <%= link_to "削除する", chat_comment_path(@chat, comment), method: :delete, remote: true  %>
+       <% end %></br>
+         <%#= simple_format(h(comment.content).html_safe) %>
+       <%= sanitize(comment.content.gsub("\n", "<br>")) %>
+       <hr>
      <% end %>
-   </div>
+  </div>
 </div>
 
-<div class="flex_chat-item-4">
+<div class="chat-item-4">
   <%= paginate @comments %>
 </div>
+
+

@@ -9,7 +9,7 @@ class Discussion < ApplicationRecord
 
   validates :title, presence: true
   validates :nickname, presence: true
-  
+
   # validates :introduction, presence: true
 
 
@@ -18,9 +18,10 @@ class Discussion < ApplicationRecord
   end
 
   def self.search(keyword)
-    where(["title like? OR introduction like?", "%#{keyword}%", "%#{keyword}%"])
+    where(["title like? OR introduction like? OR nickname like?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
   end
 
+  
   def self.category
     Discussion.where(category_id: @category )
   end

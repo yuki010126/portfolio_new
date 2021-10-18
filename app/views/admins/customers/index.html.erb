@@ -13,15 +13,16 @@
         <th>メールアドレス</th>
         <th>会員登録日時</th>
         <th>ユーザー削除</th>
+        <th></th>
       </tr>
+         <% @customers.each do |customer| %>
       <tr>
-         <% @customer.each do |customer| %>
           <td><%= customer.nickname %></td>
           <td><%= customer.email %></td>
           <td><%= customer.created_at.strftime("%Y/%m/%d %H:%M:%S ")  %></td>
   　　      <td><%= link_to 'Delete', admins_customer_path(customer.id), method: :delete %></td>
+         <% end %>
       </tr>
-      <% end %>
    </table>
  </div>
 

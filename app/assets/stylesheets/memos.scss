@@ -2,68 +2,59 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.memo-1 {
-  background-image: url(paper_1.jpeg);
-  height: 100vh;
-  background-size:　cover;
-}
-
-.memo0 {
-   text-align    : center;
-   font-size    : 20pt;
-   padding-top : 40px;
-}
-
-.search-form {
-    text-align    : center;
-}
-
-// .memo1 {
-//     padding-left: 250px;
-//     margin-top: 30px;
-//     margin-bottom: 30px;
-//     // display:flex;
-//     // flex-wrap:wrap;
-// }
-
-.memo2 {
-	padding-left: 300px;
-
-}
-
-.memo3 {
-	margin-bottom: 10px;
-}
-
-.memo4 {
-    padding-top: 30px;
-    padding-left: 500px;
-}
-
-
-table{
-  border-collapse: collapse;
-  border-spacing: 5px;
-  width: 77%;
-  background-color: white;
-}
-
-table tr{
-  border-bottom: solid 10px #eee;
-  cursor: pointer
-}
-
-table tr:hover{
-  background-color: #F8F8FF;
-}
-
-table th,table td {
-  text-align: center;
-  width: 25%;
-  padding: 15px 0;
-}
-
-.memo4-1 {
-  padding-left: 300px;
-  padding-top: 20px;
-}
+  .memo-1 {
+      background-image: url(paper_1.jpeg);
+      height: 100vh;
+      background-size:　cover;
+  }
+  
+  .memo0 {
+      text-align    : center;
+      font-size    : 20pt;
+      padding-top : 40px;
+  }
+  
+  .search-form {
+      text-align    : center;
+  }
+  
+  .memo2 {
+  	  padding-left: 300px;
+  
+  }
+  
+  .memo3 {
+  	  margin-bottom: 10px;
+  }
+  
+  .memo4 {
+      padding-top: 30px;
+      padding-left: 500px;
+  }
+  
+  table{
+      border-collapse: collapse;
+      border-spacing: 5px;
+      width: 77%;
+      background-color: white;
+  }
+  
+  table tr{
+      border-bottom: solid 10px #eee;
+      cursor: pointer
+  }
+  
+  table tr:hover{
+      background-color: #F8F8FF;
+  }
+  
+  table th,table td {
+      text-align: center;
+      width: 25%;
+      padding: 15px 0;
+  }
+  
+  .memo4-1 {
+      padding-left: 300px;
+      padding-top: 20px;
+  }

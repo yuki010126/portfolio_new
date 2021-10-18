@@ -13,15 +13,15 @@
 	    <%= f.label :category, 'カテゴリ' %>
 	  </div>
 	  <div class="discussion-4-1">
-	  <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
-		  <%= category.label do %>
-		  <%= category.check_box %>
-		  <%= category.text %>
+	    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+		    <%= category.label do %>
+		      <%= category.check_box %>
+		      <%= category.text %>
+		    <% end %>
 		  <% end %>
-		<% end %>
 		</div>
 	  <div class="discussion-5-1">
-	 　<%= f.submit "送信", class: "button" %>
+	    <%= f.submit "送信", class: "button" %>
 	  </div>
 	<% end %>
 

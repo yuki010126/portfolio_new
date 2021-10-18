@@ -10,7 +10,7 @@ class Chat < ApplicationRecord
   # validates :content, presence: true
 
   def self.search(keyword)
-    where(["title like? OR introduction like?", "%#{keyword}%", "%#{keyword}%"])
+    where(["title like? OR introduction like? OR nickname like?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
   end
 
   def favorited_by?(customer)
@@ -21,7 +21,4 @@ class Chat < ApplicationRecord
     chat.where(kind_id: @kind )
   end
 
-
-  # validates :title, presence: true, length: { in: 4..127 }
-  # validates :nickname, presence: true, length: { in: 1..30 }
 end

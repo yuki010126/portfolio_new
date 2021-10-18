@@ -39,7 +39,7 @@ devise_for :customers, controllers: {
   end
 
   resources :discussions do
-    resources :opinions, only: [:create, :destroy]
+    resources :opinions, only: [:create, :show, :destroy]
      resource :bookmarks, only: [:create, :destroy]
   end
 
@@ -67,7 +67,8 @@ devise_for :customers, controllers: {
   get 'done', to: 'contacts#done', as: 'done'
 
 
-  get 'search' => 'chats#search'
+
+
 
 
  end

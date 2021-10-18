@@ -1,19 +1,19 @@
-<div class="chat-1">
-  <%= link_to "スレッド一覧に戻る", chats_path %>
-</div>
-
-<div class="chat-1-1">
-  タイトルを編集する
-</div>
-
-<%= form_with model: @chat ,local: true do |f| %>
-  <div class="chat-2">
-    タイトル: <%= f.text_field :title %> <br>
+  <div class="chat-1">
+    <%= link_to "スレッド一覧に戻る", chats_path %>
   </div>
-  <div class="chat-3">
-    作成者名: <%= f.text_field :nickname %> <br>
+  
+  <div class="chat-1-1">
+    タイトルを編集する
   </div>
-  <div class="chat-5-1">
-    <%= f.submit "送信", class: "button"  %>
-  </div>
-<% end %>
+  
+  <%= form_with model: @chat ,local: true do |f| %>
+    <div class="chat-2">
+      タイトル: <%= f.text_field :title %> <br>
+    </div>
+    <div class="chat-3">
+      作成者名: <%= f.text_field :nickname %> <br>
+    </div>
+    <div class="chat-5-1">
+      <%= f.submit "送信", class: "button"  %>
+    </div>
+  <% end %>

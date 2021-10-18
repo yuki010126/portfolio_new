@@ -16,34 +16,32 @@
 
  <div class="search">
    <%= form_with url: discussions_path, method: :get, local: true do |f| %>
-    <%= f.text_field :keyword, value: @keyword,  size: 40  %>
-    <%= f.submit "検索" %>
+     <%= f.text_field :keyword, value: @keyword,  size: 40, :placeholder => "キーワードを入力してください"  %>
+     <%= f.submit "検索" %>
    <% end %>
 </div>
 
 <div class="search1"><%= link_to "スレッドを作る", new_discussion_path %></div>
 
 <div class="container">
-    <!--<div class="wrapper">-->
   <h1>DiscussionRoom</h1>
-    <h5>「足音」って何？については<%= link_to "About", about_path %>をご覧にください。</h5>
+    <h5>「足音」って何？については<%= link_to "About", about_path %>をご覧ください。</h5>
     <h5>もっと詳しく教えてよ<%= link_to "Q&A", answer_path  %></h5>
     <hr>
-     <div class="panel">
+  <div class="panel">
     <h2>生産的なお話をしましょう</h2>
       <% @discussions.each do |discussion| %>
         <%= link_to discussion.title, discussion_path(discussion) %> &nbsp &nbsp &nbsp
         (<%= discussion.opinions.count %>)</br>
-    <!--<%#= current_customer.discussions.where('created_at > ?', Date.today).count %>-->
+        <!--<%#= current_customer.discussions.where('created_at > ?', Date.today).count %>-->
       <% end %>
-    </div>
+   </div>
  </div>
-</div>
 
 <div class ="discussion-6">
   <%= paginate @discussions %>
 </div>
- <!--</div>-->
+
 
 
 

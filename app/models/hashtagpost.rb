@@ -6,3 +6,4 @@ class Hashtagpost < ApplicationRecord
 end
 
 
+# 今後実装予定　ハッシュタグ

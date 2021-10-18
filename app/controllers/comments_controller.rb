@@ -1,10 +1,5 @@
 class CommentsController < ApplicationController
-   before_action :authenticate_customer!
-
-  # def index
-  #   @comments = Comment.all.page(params[:page]).per(8)
-  # end
-
+  before_action :authenticate_customer!
 
    def new
      @comment = current_customer.comments.build
@@ -13,8 +8,6 @@ class CommentsController < ApplicationController
    def show
      @comment = Comment.find(params[:id])
      @chat = Chat.includes(:comments).find(params[:id])
-     # @comment = Comment.new
-     # @comments= @chat.comments.page(params[:page]).per(8)
    end
 
    def create
@@ -23,14 +16,7 @@ class CommentsController < ApplicationController
      @comment = Comment.new(comment_params)
      @comment.chat = @chat
      @comment.customer_id = current_customer.id
-     # @comment.score = Language.get_data(comment_params[:content])
-     # @comment.save
-     # redirect_to chat_url(@chat)
-     # if @comment.save
-     #   redirect_to chat_url(@chat)
-     # else
-     #   render "chats/show"
-     # end
+  
      @comment.score = Language.get_data(comment_params[:content])
       if  @comment.score > -0.3
         @comment.save

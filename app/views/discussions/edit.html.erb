@@ -1,19 +1,17 @@
  <div class="discussion-1">
    <%= link_to "スレッド一覧に戻る", discussions_path %>
  </div>
-
- <div class="discussion-1-1">
-  タイトルを編集する
- </div>
-
- <%= form_with model: @discussion ,local: true do |f| %>
-    <div class="discussion-2">
-      タイトル: <%= f.text_field :title %> <br>
-    </div>
-    <div class="discussion-3">
-      作成者名: <%= f.text_field :nickname %> <br>
-    </div>
-    <div class="discussion-5-1">
-      <%= f.submit "送信", class: "button" %>
-    </div>
- <% end %>
+   <div class="discussion-1-1">
+     タイトルを編集する
+   </div>
+     <%= form_with model: @discussion ,local: true do |f| %>
+       <div class="discussion-2">
+         タイトル: <%= f.text_field :title %> <br>
+       </div>
+       <div class="discussion-3">
+         作成者名: <%= f.text_field :nickname %> <br>
+       </div>
+       <div class="discussion-5-1">
+         <%= f.submit "送信", class: "button" %>
+       </div>
+    <% end %>

@@ -11,4 +11,11 @@ class Customer < ApplicationRecord
   has_many :memos, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :opinions, dependent: :destroy
+
+  def self.search(keyword)
+     where(["email like?  OR nickname like?", "%#{keyword}%" , "%#{keyword}%"])
+  end
+
+
 end
+

@@ -1,12 +1,11 @@
-      <% @memos.each do |memo| %>
-            <tr>
-                <td><%= memo.customer.nickname %></td>
-                <td><%= memo.title %></td>
-                <td><%= memo.body %></td>
+<% @memos.each do |memo| %>
+  <tr>
+    <td><%= memo.customer.nickname %></td>
+    <td><%= memo.title %></td>
+    <td><%= memo.body %></td>
+    <td><%= link_to "編集", edit_memo_path(memo) %></td>
+    <td><%= link_to "削除", memo_path(memo), method: :delete %></td>
+  </tr>
+<% end %>
 
-                <td><%= link_to "編集", edit_memo_path(memo) %></td>
-                <td><%= link_to "削除", memo_path(memo), method: :delete %></td>
-            </tr>
-        <% end %>
-
-
+<!--javascript導入後の各掲示板に実装-->

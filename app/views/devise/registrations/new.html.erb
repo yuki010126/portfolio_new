@@ -1,58 +1,41 @@
-<h2 class="title">
-  会員登録
-</h2>
-
-<div class= "new">
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-    <div class="field">
-      <%= f.label :nickname, "︎ニックネーム" %>
-      <p class="control has-icons-left">
-      <%= f.text_field :nickname, autofocus: true, :placeholder => "nickname", class: "input" %>
-       <span class="icon is-small is-left">
-        <i class="fas fa-user"></i>
-       </span>
-      </p>
-    </div>
-
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %>
-    <p class="control has-icons-left">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "email", class: "input" %>
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-   </p>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, "パスワード" %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上で入力)</em>
+<h2 class="title">会員登録</h2>
+  <div class= "new">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <!--<%#= render "devise/shared/error_messages", resource: resource %>-->
+        <div class="field">
+          <%= f.label :nickname, "︎ニックネーム" %>
+            <p class="control has-icons-left">
+              <i class="fas fa-user" style="color:black"></i>
+                <%= f.text_field :nickname, autofocus: true, :placeholder => "nickname", class: "input" %>
+            </p>
+        </div>
+        <div class="field">
+          <%= f.label :email, "メールアドレス" %>
+          <p class="control has-icons-left">
+            <i class="fas fa-envelope" style="color:black"></i>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "email", class: "input" %>
+          </p>
+        </div>
+        <div class="field">
+          <%= f.label :password, "パスワード" %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> 文字以上で入力)</em>
+          <% end %>
+          <p class="control has-icons-left">
+            <i class="fas fa-lock" style="color:black"></i>
+            <%= f.password_field :password, autocomplete: "new-password", :placeholder => "password confirmation", class: "input" %>
+          </p>
+        </div>
+        <div class="field">
+          <%= f.label :password_confirmation, "パスワードの確認"  %>
+          <p class="control has-icons-left">
+            <i class="fas fa-lock" style="color:black"></i>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "password confirmation", class: "input" %>
+          </p>
+        </div>
+        <div class="actions">
+          <%= f.submit "登録する", class: "button" %>
+        </div>
     <% end %>
-     <p class="control has-icons-left">
-    <%= f.password_field :password, autocomplete: "new-password", :placeholder => "password confirmation", class: "input" %>
-     <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
-    </span>
-   </p>
+   <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "パスワードの確認"  %>
-     <p class="control has-icons-left">
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "password confirmation", class: "input" %>
-    <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
-    </span>
-   </p>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "登録する", class: "button" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-</div>

@@ -2,42 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// input[type="text"] {
-//         width: 250px;
-//         height: 20px;
-//     }
-
-// .new {
-//       text-align     : center;
-// }
-
-.form {
-       text-align     : center;
-       padding-top    : 70px;
-  input {
-        width         : 30%;
-        padding       : 5px;
-        border-radius : 5px;
-        border        : 1px solid #ccc;
+    .form {
+        text-align     : center;
+        padding-top    : 70px;
+          input {
+            width         : 30%;
+            padding       : 5px;
+            border-radius : 5px;
+            border        : 1px solid #ccc;
+         }
     }
-}
-
-
-.group {
-  padding-top: 40px;
-}
-
-
-.one {
-	border: 1px solid #000000;
-	width: 500px;
-	height: 25px;
-	background-color: white;
-}
-
-.two {
-	border: 1px solid #000000;
-	width: 500px;
-	height: 100px;
-	background-color: white;
-}
+    
+    .group {
+        padding-top: 40px;
+    }
+    
+    .one {
+      	border: 1px solid #000000;
+      	width: 500px;
+      	height: 25px;
+      	background-color: white;
+    }
+    
+    .two {
+      	border: 1px solid #000000;
+      	width: 500px;
+      	height: 100px;
+      	background-color: white;
+    }

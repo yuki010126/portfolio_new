@@ -1,98 +1,68 @@
-
- <div class="mypage5">
+<div class="mypage5">
+  ニックネーム：<%= @nickname %></br>
   ※<%= link_to '登録情報を変更する', edit_customer_registration_path %>
   ※<%= link_to '退会する', unsubscribe_path(current_customer) %>
- </div>
+</div>
 
 <h2>マイページ</h2>
-
-<dic class="mypage1"> ■<%= @nickname %>の参加スレッド</div>
-<dic class="mypage2"> ■<%= @nickname %>のBookmark一覧</div>
-
-
-
-<div class="boxContainer">
-
-
-  <div class="box"> ChatRoom(直近5件の投稿を表示)
-   <% @threads.each do |thread| %>
-   </br>
-    <%= link_to thread.title, chat_path(thread) %></br>
-    <!--スレッドオーナー:<%#= thread.nickname %><br>-->
-    <%#= comment_thread.comments.order(created_at: "DESC").limit(5).inspect %>
-    最新コメント</br>
-    <% thread.comments.order(created_at: "DESC").limit(5).each do |comment|  %>
-    ・<%= comment.nickname %>&nbsp&nbsp
-    <%= comment.content %><br>
-
-    <% end %>
-    <% end %></div>
-
-
-
-  <div class="box">  DiscussionRoom(直近5件の投稿を表示)
-   <% @texts.each do |text| %>
-   </br>
-    <%= link_to text.title, discussion_path(text) %></br>
-    <!--スレッドオーナー:<%#= thread.nickname %><br>-->
-    <%#= comment_thread.comments.order(created_at: "DESC").limit(5).inspect %>
-    最新コメント</br>
-    <% text.opinions.order(created_at: "DESC").limit(5).each do |opinion|  %>
-    ・<%= opinion.nickname %>&nbsp&nbsp
-    <%= opinion.content %><br>
-
-    <% end %>
-
-    <%#= comment_thread.inspect %>
-    <!--<%#= @customer.chats %>-->
-    <!--<%#= chat.content %>-->
-
-    <% end %>
-  </div>
-
-
-  <div class="box">  ChatRoom</br>
-    <thead>
-      <tr>
-       <th>投稿者名</th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    　 <th>タイトル</th>
-    　 </tr>
-    　 </thead>
-
-     <% @favorites.each do |favorite| %></br>
-      <tr>
-      <tbody>
-          <td><%= favorite.chat.customer.nickname %></td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-           <td>
-            <%= link_to chat_path(favorite.chat) do %>
-              <%= favorite.chat.title %>
-            <% end %>
-           </td>
-          <!--<td><%#= bookmark.discussion.body %></td>-->
-           </tr>
-      <% end %></br>
-     </tbody>
-  </div>
-
-  <div class="box">  DiscussionRoom</br>
-    <thead>
-      <tr>
-       <th>投稿者名</th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    　 <th>タイトル</th>
-    　 </tr>
-    　 </thead>
-
-      <% @bookmarks.each do |bookmark| %></br>
-      <tr>
-      <tbody>
-          <td><%= bookmark.discussion.customer.nickname %></td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-           <td>
-            <%= link_to discussion_path(bookmark.discussion) do %>
-              <%= bookmark.discussion.title %>
-            <% end %>
-           </td>
-           </tr>
-      <% end %></br>
-     </tbody>
-  </div>
-</div>
+  <div class="boxcontainer">
+    <div class="tab">
+      <input type="radio" name="tab" id="meat1" checked>
+        <label for="meat1"><%= @nickname %>の参加スレッド</label>
+        <input type="radio" name="tab" id="meat2">
+        <label for="meat2"><%= @nickname %>のBookmark一覧</label>
+          <div class="foods">
+            <ul>
+              <li>
+                <div class="box-b">ChatRoom(直近5件の投稿を表示)</div>
+                </br>
+                  <% @threads.each do |thread| %>
+                    <%= link_to thread.title, chat_path(thread) %></br>
+                        《最新コメント》</br>
+                        <% thread.comments.order(created_at: "DESC").limit(5).each do |comment|  %>
+                        <%= comment.nickname %>&nbsp&nbsp
+                        <%= comment.content %><br>
+                        <% end %>
+                        </br>
+                    <% end %>
+              </li>
+              <li>
+                <div class="box-b">DiscussionRoom(直近5件の投稿を表示)</div>
+                </br>
+                  <% @texts.each do |text| %>
+                    <%= link_to text.title, discussion_path(text) %></br>
+                      《最新コメント》</br>
+                      <% text.opinions.order(created_at: "DESC").limit(5).each do |opinion|  %>
+                      <%= opinion.nickname %>&nbsp&nbsp
+                      <%= opinion.content %><br>
+                      <% end %>
+                      </br>
+                  <% end %>
+                </li>
+            </ul>
+            <ul>
+              <li>
+                <div class="box-b"> ChatRoom</div>
+                  <% @favorites.each do |favorite| %></br>
+                    <%= favorite.chat.customer.nickname %>:
+                    <%= link_to chat_path(favorite.chat) do %>
+                    <%= favorite.chat.title %>
+                    <% end %>
+                    </br>
+                 <% end %>
+                 </br>
+              </li>
+              <li>
+                <div class="box-b">DiscussionRoom</div>
+                  <% @bookmarks.each do |bookmark| %></br>
+                    <%= bookmark.discussion.customer.nickname %>:
+                    <%= link_to discussion_path(bookmark.discussion) do %>
+                      <%= bookmark.discussion.title %>
+                    <% end %>
+                    </br>
+                  <% end %>
+              </li>
+            </ul>
+        </div>
+      </div>
+   </div>

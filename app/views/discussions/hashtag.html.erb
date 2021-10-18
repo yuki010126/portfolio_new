@@ -1,20 +1,10 @@
-<!--<h2>ハッシュタグ #<%#= @tag.hashname %></h2>-->
-<!--  <ul>-->
-<!--    <%# @discussions.each do |discussion| %>-->
-<!--      <li>-->
-<!--        <%#= link_to discussion_path(discussion.id) do %>-->
+<!--ハッシュタグ実装予定-->
 
+<!-- <div class= "hashtag-name">-->
+<!--    <%# @hashtags.sort.reverse.each do |count| %>-->
+<!--        <%# count[1].each do |hashtag| %>-->
+<!--            <p><%#= link_to  "(#{hashtag.hashname}) (#{hashtag.discussions.count}) 件","/discussion/hashtag/#{hashtag.hashname}",data: {"turbolinks" => false} %>-->
+<!--            </p>-->
 <!--        <%# end %>-->
-<!--      </li>-->
 <!--    <%# end %>-->
-<!--  </ul>-->
-
-
- <div class= "hashtag-name">
-    <% @hashtags.sort.reverse.each do |count| %>
-        <% count[1].each do |hashtag| %>
-            <p><%= link_to  "(#{hashtag.hashname}) (#{hashtag.discussions.count}) 件","/discussion/hashtag/#{hashtag.hashname}",data: {"turbolinks" => false} %>
-            </p>
-        <% end %>
-    <% end %>
-</div>s
+<!--</div>s-->

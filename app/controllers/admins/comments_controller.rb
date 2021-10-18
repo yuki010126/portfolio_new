@@ -14,9 +14,4 @@ class Admins::CommentsController < ApplicationController
      redirect_to admins_chats_path
    end
 
-   # def destroy
-   #   Comment.find_by(id: params[:id], chat_id: params[:caht_id]).destroy
-   #   @chat = Chat.find_by(id: params[:chat_id])
-   #   redirect_to admins_chats_path
-   # end
 end

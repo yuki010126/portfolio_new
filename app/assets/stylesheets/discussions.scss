@@ -2,96 +2,90 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.discussion-0 {
-    padding-top: 90px;
-    padding-left: 80px;
-    float: left;
-}
+    // index画面
+    .discussion-0 {
+        padding-top: 90px;
+        padding-left: 80px;
+        float: left;
+    }
 
-.search {
+    .discussion-1 {
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .discussion-1-1 {
+        text-align: center;
+        padding-top: 50px;
+        font-size: 30px;
+    }
+
+    .discussion-2 {
+        padding-top: 30px;
+        padding-left: 650px;
+    }
+
+    .discussion-3 {
+        padding-top: 30px;
+        padding-left: 650px;
+    }
+
+    .discussion-4 {
+      padding-top: 30px;
+      padding-left: 810px;
+  }
+
+    .discussion-4-1 {
+      padding-top: 20px;
+      text-align: center;
+  }
+
+    .discussion-5-1 {
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    .discussion-6 {
+        padding-left: 770px;
+    }
+
+    // 検索
+    .search {
         padding-top: 5px;
         padding-left: 680px;
-}
+    }
 
-.search1 {
+    .search1 {
         padding-left: 760px;
-}
+    }
+
+    // showページ
+    .discussion-box {
+        display: flex;
+    }
+
+    .discussion-item-1 {
+        padding-top: 80px;
+        padding-left: 450px;
+    }
+
+    .discussion-item-2-1 {
+        padding-top: 30px;
+    }
+
+    .discussion-item-3 {
+        padding-top: 100px;
+        padding-left: 150px;
+    }
 
 
-.flex_discussion-box {
-   display: flex;
-}
+    .discussion-item-4 {
+        padding-top: 35px;
+        text-align: center;
+    }
 
-.flex_discussion-item-1 {
-   padding-top: 50px;
-   padding-left: 450px;
-}
-
-
-.flex_discussion-item-2 {
-   padding-top: 30px;
-   padding-left: 100px;
-}
-
-.flex_discussion-item-2-1{
-   padding-top: 30px;
-}
-
-
-.flex_discussion-item-3 {
-   padding-top: 5px;
-   padding-left: 350px;
-}
-
-
-.discussion-1 {
-   text-align: center;
-   padding-top: 60px;
-}
-
-.discussion-1-1 {
-   text-align: center;
-   padding-top: 50px;
-   font-size: 30px;
-}
-
-
-.discussion-2 {
-   padding-top: 30px;
-   padding-left: 650px;
-}
-
-.discussion-3 {
-   padding-top: 30px;
-   padding-left: 650px;
-}
-
-.discussion-4 {
-   padding-top: 30px;
-   padding-left: 810px;
-}
-
-.discussion-4-1 {
-   padding-top: 20px;
-   text-align: center;
-}
-
-.discussion-5 {
-   padding-top: 20px;
-   padding-left: 645px;
-}
-
-.discussion-5-1 {
-   padding-top: 20px;
-   text-align: center;
-}
-
-.discussion-6 {
-    padding-left: 770px;
-}
-
-.api {
- padding-top: 2px;
-}
+    .api {
+        padding-top: 2px;
+    }
 
 
