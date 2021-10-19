@@ -31,7 +31,7 @@ DiscussionRoomは、生産的な会話を行うことが目的で前向きに行
 ## 設計書
 ER図は<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0">こちらから。</a></br>
 UIFlowsは<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0">こちらから。</a></br>
-テーブル定義書は<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0">こちらから。</a></br>
+テーブル定義書は<a href="https://docs.google.com/spreadsheets/d/1EvojL-LSdXeTZD9N0vY83vF4L45-2R1y/edit#gid=1739957604">こちらから。</a></br>
 アプリケーション詳細設計<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0">こちらから。</a>
 
 ## チャレンジ要素一覧
