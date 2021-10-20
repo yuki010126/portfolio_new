@@ -17,7 +17,7 @@
             <%= link_to "ブックマーク", chat_favorites_path(@chat), method: :chat  %>
           <% end %>
 
-        <%= form_for @comment, url: chat_comments_path(@chat, @comment) do |f| %>
+        <%= form_for @comment, url: chat_comments_path(@chat, @comment), data: {remote: true} do |f| %>
           <div class="chat-item-2-1">
             ニックネーム:</br> <%= f.text_field :nickname %> <br>
           </div>

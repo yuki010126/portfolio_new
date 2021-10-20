@@ -2,7 +2,12 @@ $('#memo').html("<%= j(render 'memos/new', memos: @memos) %>");
 $("text_area").val("");
 $("#text").val("");
 
-$('#comment').html("<%= j(render 'comments/new', comments: @comments) %>");
+$('#comment').html("<%= j(render 'comments/show', comments: @comments) %>");
 $("text_area").val("");
 $("#text").val("");
+
+$('#opinion').html("<%= j(render 'opinions/show', opinions: @opinions) %>");
+$("text_area").val("");
+$("#text").val("");
+
 

@@ -12,12 +12,12 @@
             <% end %>
           <%= link_to "スレッド一覧に戻る", discussions_path %></br>
             <% if @discussion.bookmarked_by?(current_customer) %>
-              <%= link_to "ブックマークを外す", discussion_bookmarks_path(@discussion), method: :delete  %>
+              <%= link_to "ブックマークを外す", discussion_bookmarks_path(@discussion), method: :delete   %>
             <% else %>
-              <%= link_to "ブックマーク", discussion_bookmarks_path(@discussion), method: :discussion %>
+              <%= link_to "ブックマーク", discussion_bookmarks_path(@discussion), method: :discussion  %>
             <% end %>
 
-        <%= form_for @opinion, url: discussion_opinions_path(@discussion, @opinion) do |f| %>
+        <%= form_for @opinion, url: discussion_opinions_path(@discussion, @opinion), data: {remote: true} do |f| %>
           <div class="discussion-item-2-1">
             ニックネーム:</br> <%= f.text_field :nickname %> <br>
           </div>
