@@ -29,10 +29,10 @@ DiscussionRoomは、生産的な会話を行うことが目的で前向きに行
 新しいことを始めたい時、インプットしたい時、ひらめきをアウトプットしたい時</br>
 
 ## 設計書
-ER図は<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0">こちらから。</a></br>
-UIFlowsは<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0">こちらから。</a></br>
-テーブル定義書は<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0">こちらから。</a></br>
-アプリケーション詳細設計<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0">こちらから。</a>
+ER図は<a href="https://app.diagrams.net/#G1fVGmt6MJCGIC8_UOwS4GSAseVQ4rlpkW">こちらから。</a></br>
+UIFlowsは<a href="https://app.diagrams.net/#G1cbE6Ss6uFuOe8WN2g7eEZ5hQvagFIxhn">こちらから。</a></br>
+テーブル定義書は<a href="https://docs.google.com/spreadsheets/d/1EvojL-LSdXeTZD9N0vY83vF4L45-2R1y/edit#gid=1739957604">こちらから。</a></br>
+アプリケーション詳細設計<a href="https://docs.google.com/spreadsheets/d/1tz28Tek8td9ZrUmOrVk29rdVahB8naaOx4ibakgKBG0/edit#gid=1968271425">こちらから。</a>
 
 ## チャレンジ要素一覧
 チャレンジ要素は<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0">こちらから。</a></h4>
@@ -43,7 +43,3 @@ UIFlowsは<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8x
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
-## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
