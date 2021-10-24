@@ -18,7 +18,7 @@
 
     footer  {
       width: 100%;
-      height: 40px;
+      height: 47px;
       background-color: black;
       color: white;
       text-align: center;
@@ -33,8 +33,6 @@
       display: flex;
       align-items: center;
       background-color: black;
-      box-shadow: 5px 5px 5px rgba(0, 0, 0, 2.0);
-      opacity: 0.9;
       a {
           color: white;
           text-decoration: none ;
@@ -53,7 +51,7 @@
     }
 
     .nav {
-       margin: 0 0 0 700px;
+       margin: 0 0 0 630px;
        display: flex;
     }
 
@@ -231,7 +229,6 @@
         height: 100vh;
         padding-top: 40px;
     }
-
 
     .content {
         width:auto;

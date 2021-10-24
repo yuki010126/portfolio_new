@@ -8,7 +8,19 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-        <script src="https://use.fontawesome.com/926fe18a63.js"></script>
+        <script src="https://use.fontawesome.com/926fe18a63.js">
+
+        </script>
+        <script>
+        $("html").css("zoom", $(window).width() / 1625);
+$(window).bind({
+    "resize load orientationchange" : function(event) {
+        var zoom = $(window).width() / 1625;
+        $("html").css("zoom", zoom);
+    }
+});
+</script>
+
     </head>
 
     <body>
