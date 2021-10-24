@@ -3,7 +3,28 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // index画面
-  .chat-0 {
+  .outline {
+      display: flex; /* Flexboxの利用 */
+      justify-content: center; /* 子要素の横並び・中央寄せ */
+      margin: 0 auto;
+      padding: 40px 0px;
+  }
+
+  .side {
+      padding-right: 160px;
+      padding-top: 40px;
+  }
+
+  .submain {
+       width: 760px;
+       margin-right: 400px;
+  }
+
+ .paginate {
+       text-align: center;
+  }
+
+   .chat-0 {
       padding-top: 90px;
       padding-left: 80px;
       float: left;
@@ -22,18 +43,18 @@
 
   .chat-2 {
       padding-top: 30px;
-      padding-left: 650px;
+      text-align: center;
   }
 
   .chat-3 {
       padding-top: 30px;
-      padding-left: 650px;
+      text-align: center;
   }
 
- 
+
   .chat-4 {
       padding-top: 30px;
-      padding-left: 810px;
+      text-align: center;
   }
 
 
@@ -48,9 +69,6 @@
       text-align: center;
   }
 
-  .chat-6 {
-      padding-left: 770px;
-  }
 
   // 検索
   .search {

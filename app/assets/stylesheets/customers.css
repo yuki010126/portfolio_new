@@ -1,5 +1,7 @@
   .wrap {
-      text-align: center; }
+      text-align: center;
+
+  }
 
   .content {
       width: auto;
@@ -13,7 +15,6 @@
       color: #333;
       line-height: 3em; }
 
-  以下フェードイン表示の指定
   .fadein {
       opacity: 0;
       animation: fadein 6s ease forwards; }

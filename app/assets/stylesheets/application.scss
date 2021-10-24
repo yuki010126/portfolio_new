@@ -14,56 +14,34 @@
  *= require_self
  */
 
-
-
-    footer  {
-      width: 100%;
-      height: 47px;
-      background-color: black;
-      color: white;
-      text-align: center;
-      padding-top: 10px;
-    }
-
     // ヘッダー周りの調整
     header {
-      font-family: "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", "MS PMincho", serif;
-      padding: 10px 3% 5px 5px;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      background-color: black;
-      a {
-          color: white;
-          text-decoration: none ;
+        font-family: "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+        width: 100%;
+        height: 70px;
+        text-align: center;
+        background-color: black;
+        a {
+            color: white;
+            text-decoration: none ;
+        }
+    }
+
+    header .heading {
+        font-size: 20px;
+    }
+
+    .nav-list {
+        text-align: center;
+        padding: 10px 0;
+        margin: 0 auto;
+    }
+
+    .nav-list-item {
+        list-style: none;
+        display: inline-block;
+        margin: 0 20px;
       }
-    }
-
-    ul {
-      list-style: none;
-      margin: 0;
-      display: flex;
-    }
-
-    li {
-      margin: 0 0 0 15px;
-      font-size: 14px
-    }
-
-    .nav {
-       margin: 0 0 0 630px;
-       display: flex;
-    }
-
-    .nav1 {
-       margin: 0 0 0 999px;
-       display: flex;
-    }
-
-    .nav2 {
-       margin: 0 0 0 920px;
-       display: flex;
-    }
 
     .main-visual {
       display: flex;
@@ -73,47 +51,15 @@
       background-image: image-url("4402640608_e602a6fe5c_k.jpeg")
     }
 
-    .menu-content {
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        top: 0;
-        left: 100%;/*leftの値を変更してメニューを画面外へ*/
-        z-index: 80;
-        background-color: #3584bb;
-        transition: all 0.5s;/*アニメーション設定*/
+    footer  {
+      width: 100%;
+      height: 57px;
+      background-color: black;
+      color: white;
+      text-align: center;
+      line-height: 57px;
     }
 
-    .menu-content ul {
-        padding: 70px 10px 0;
-    }
-
-    .menu-content ul li {
-        border-bottom: solid 1px #ffffff;
-        list-style: none;
-    }
-    .menu-content ul li a {
-        display: block;
-        width: 100%;
-        font-size: 15px;
-        box-sizing: border-box;
-        color:#ffffff;
-        text-decoration: none;
-        padding: 9px 15px 10px 0;
-        position: relative;
-    }
-
-    .menu-content ul li a::before {
-        content: "";
-        width: 7px;
-        height: 7px;
-        border-top: solid 2px #ffffff;
-        border-right: solid 2px #ffffff;
-        transform: rotate(45deg);
-        position: absolute;
-        right: 11px;
-        top: 16px;
-    }
 
     #menu-btn-check:checked ~ .menu-content {
         left: 0;/*メニューを画面内へ*/
@@ -204,19 +150,20 @@
 
     }
 
-    .error .notice {
-        background-color: #ccd8cc;
-        color: #fff;
-        padding: 10px;
-        text-align :center;
-    }
+    // エラーメッセージ追加検討
+    // .error .notice {
+    //     background-color: #ccd8cc;
+    //     color: #fff;
+    //     padding: 10px;
+    //     text-align :center;
+    // }
 
-    .error .alert {
-        background-color: #ccd8cc;
-        color: #fff;
-        padding: 10px;
-      　text-align :center;
-    }
+    // .error .alert {
+    //     background-color: #ccd8cc;
+    //     color: #fff;
+    //     padding: 10px;
+    //   　text-align :center;
+    // }
 
     * {
         margin: 0;
@@ -263,19 +210,6 @@
        position: absolute;
     }
 
-    @media(max-width:640px){
-        h6 {
-       margin: 0;
-       font-size: 35px;
-       font-weight: normal;
-       color: #fff;
-       animation-name: fadein;
-       animation-duration: 4s;
-       position: absolute;
-    }
-    }
-
-
     @keyframes fadein {
     from {
         opacity: 0;
@@ -286,18 +220,6 @@
         transform: translateY(0);
     }
     }
-
-    .wrapper {
-        width: 100%;
-        height: 100%;
-        padding-top: 50px;
-        float: right;
-    }
-
-    .container {
-        width: 800px;
-        margin: 0 auto;
-     }
 
      h4 {
         margin: 0; padding: 0;
@@ -310,17 +232,6 @@
          font-size    : 20pt;
     }
 
-    // discussion.index
-    .cate {
-         padding-top: 90px;
-         padding-left: 80px;
-         float: left;
-    }
 
-    .hope {
-         padding-left: 10px;
-    }
 
-    h5 {
-         margin: 10px;
-    }
+

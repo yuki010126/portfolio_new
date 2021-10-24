@@ -1,34 +1,36 @@
- <header>
-  <h4><a href="/">〜足音【ASHIOTO】〜</a></h4>
-    <% if customer_signed_in? %>
-      <div class="nav">
-        <ul>
-           <li> <%= link_to "■ChatRoom", chats_path %></li>
-           <li><%= link_to "■DiscussionRoom", discussions_path %></li>
-           <li> <%= link_to "■MemoRoom", new_memo_path %></li>
-           <li><%= link_to "■Mypage", "/customers/#{current_customer.id}" %></li>
-           <li><%= link_to "■About", about_path %></li>
-           <li><%= link_to "■Q&A", answer_path  %> </li>
-           <li><%= link_to "■Contact", new_contact_path  %></li>
-           <li><%= link_to "■Logout", destroy_customer_session_path, method: :delete  %></li>
-           <li class="SNS"><a href="https://www.instagram.com/ashioto_0904/"><span class="fa fa-instagram"></span></a></li>
-       </div>
-    <% elsif admin_signed_in? %>
-       <div class="nav1">
-           <li><%= link_to ' Customer', admins_customers_path %></li>
-           <li><%= link_to ' ChatRoom', admins_chats_path %></li>
-           <li><%= link_to ' DiscussionRoom', admins_discussions_path  %></li>
-           <li><%= link_to ' Logout', destroy_admin_session_path, method: :delete  %></li>
-       </div>
-    <% else %>
-       <div class="nav2">
-           <li><%= link_to "■会員登録", new_customer_registration_path %> </li>
-           <li> <%= link_to "■ログイン", new_customer_session_path %> </li>
-           <li><%= link_to "■About", about_path  %></li>
-           <li><%= link_to "■F&Q", answer_path  %></li>
-           <li class="SNS"><a href="https://www.instagram.com/ashioto_0904/">■<span class="fa fa-instagram"></span></a></li>
-         </ul>
-       </div>
-     <% end %>
- </header>
+<header>
+  <div class="heading">
+     <a href="/">〜足音【ASHIOTO】〜</a>
+  </div>
+  <nav>
+    <ul class="nav-list">
+      <% if customer_signed_in? %>
+             <li class="nav-list-item"> <%= link_to "■ChatRoom", chats_path %></li>
+             <li class="nav-list-item"><%= link_to "■DiscussionRoom", discussions_path %></li>
+             <li class="nav-list-item"> <%= link_to "■MemoRoom", new_memo_path %></li>
+             <li class="nav-list-item"><%= link_to "■Mypage", "/customers/#{current_customer.id}" %></li>
+             <li class="nav-list-item"><%= link_to "■About", about_path %></li>
+             <li class="nav-list-item"><%= link_to "■Q&A", answer_path  %> </li>
+             <li class="nav-list-item"><%= link_to "■Contact", new_contact_path  %></li>
+             <li class="nav-list-item"><%= link_to "■Logout", destroy_customer_session_path, method: :delete  %></li>
+             <li class="nav-list-item" class="SNS"><a href="https://www.instagram.com/ashioto_0904/"><span class="fa fa-instagram"></span></a></li>
+      <% elsif admin_signed_in? %>
+         <div class="nav1">
+             <li><%= link_to ' Customer', admins_customers_path %></li>
+             <li><%= link_to ' ChatRoom', admins_chats_path %></li>
+             <li><%= link_to ' DiscussionRoom', admins_discussions_path  %></li>
+             <li><%= link_to ' Logout', destroy_admin_session_path, method: :delete  %></li>
+         </div>
+      <% else %>
+         <div class="nav2">
+             <li><%= link_to "■会員登録", new_customer_registration_path %> </li>
+             <li> <%= link_to "■ログイン", new_customer_session_path %> </li>
+             <li><%= link_to "■About", about_path  %></li>
+             <li><%= link_to "■F&Q", answer_path  %></li>
+             <li class="SNS"><a href="https://www.instagram.com/ashioto_0904/">■<span class="fa fa-instagram"></span></a></li>
+         </div>
+      <% end %>
+    </ul>
+  </nav>
+</header>
 

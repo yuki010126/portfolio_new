@@ -13,13 +13,13 @@
         </script>
         <script>
         $("html").css("zoom", $(window).width() / 1625);
-$(window).bind({
-    "resize load orientationchange" : function(event) {
+        $(window).bind({
+        "resize load orientationchange" : function(event) {
         var zoom = $(window).width() / 1625;
         $("html").css("zoom", zoom);
-    }
-});
-</script>
+            }
+        });
+        </script>
 
     </head>
 

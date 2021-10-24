@@ -4,13 +4,13 @@
 
   <%= form_with model:[@chat], date: {remote: true} do |f| %>
     <div class="chat-2">
-      タイトル: <%= f.text_field :title %><br>
+      【タイトル】</br><%= f.text_field :title %><br>
     </div>
     <div class="chat-3">
-      作成者名: <%= f.text_field :nickname %><br>
+      【作成者】</br><%= f.text_field :nickname %><br>
     </div>
     <div class="chat-4">
-      <%= f.label :kind, 'カテゴリ' %>
+      <%= f.label :kind, '【カテゴリ】' %>
     </div>
     <div class="chat-4-1">
       <%= f.collection_check_boxes(:kind_ids, Kind.all, :id, :name) do |kind| %>
