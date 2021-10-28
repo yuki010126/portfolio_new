@@ -6,10 +6,10 @@
    </div>
      <%= form_with model: @discussion ,local: true do |f| %>
        <div class="discussion-2">
-         タイトル: <%= f.text_field :title %> <br>
+         タイトル: <%= f.text_field :title %> <br />
        </div>
        <div class="discussion-3">
-         作成者名: <%= f.text_field :nickname %> <br>
+         作成者名: <%= f.text_field :nickname %> <br />
        </div>
        <div class="discussion-5-1">
          <%= f.submit "送信", class: "button" %>

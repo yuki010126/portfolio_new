@@ -9,13 +9,13 @@
 
 <div class="outline">
   <div class="side">
-    【カテゴリー】</br>
+    【カテゴリー】<br />
       &nbsp;カテゴリー追加のご要望は<%= link_to "こちら", new_contact_path  %>
       <div style="width:250px;height:650px;overflow:scroll;">
-        <% @kinds.each do |kind| %><br>
+        <% @kinds.each do |kind| %><br />
           <%= kind.name %>
           <% chat_ids = KindRelation.where(kind: kind).map(&:chat_id) %>
-            <% Chat.where(id: chat_ids).each do |chat| %></br>
+            <% Chat.where(id: chat_ids).each do |chat| %><br />
               <%= link_to chat.title, chat_path(chat)  %>
             <% end %>
         <% end %>
@@ -30,7 +30,7 @@
     <h2>仲良くお話しましょう</h2>
       <% @chats.each do |chat| %>
         <%= link_to chat.title, chat_path(chat) %>&nbsp &nbsp &nbsp
-        (<%= chat.comments.count %>)</br>
+        (<%= chat.comments.count %>)<br />
       <% end %>
     <div class ="paginate">
       <%= paginate @chats %>

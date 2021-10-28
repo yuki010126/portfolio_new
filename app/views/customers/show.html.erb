@@ -17,24 +17,24 @@
                 <div class="box-b">ChatRoom(直近5件の投稿を表示)</div>
                 </br>
                   <% @threads.each do |thread| %>
-                    <%= link_to thread.title, chat_path(thread) %></br>
-                        《最新コメント》</br>
+                    <%= link_to thread.title, chat_path(thread) %><br />
+                        《最新コメント》<br />
                         <% thread.comments.order(created_at: "DESC").limit(5).each do |comment|  %>
                         <%= comment.nickname %>&nbsp&nbsp
-                        <%= comment.content %><br>
+                        <%= comment.content %><br />
                         <% end %>
-                        </br>
+                        <br />
                     <% end %>
               </li>
               <li>
                 <div class="box-b">DiscussionRoom(直近5件の投稿を表示)</div>
-                </br>
+                <br />
                   <% @texts.each do |text| %>
-                    <%= link_to text.title, discussion_path(text) %></br>
-                      《最新コメント》</br>
+                    <%= link_to text.title, discussion_path(text) %><br />
+                      《最新コメント》<br />
                       <% text.opinions.order(created_at: "DESC").limit(5).each do |opinion|  %>
                       <%= opinion.nickname %>&nbsp&nbsp
-                      <%= opinion.content %><br>
+                      <%= opinion.content %><br />
                       <% end %>
                       </br>
                   <% end %>
@@ -43,23 +43,23 @@
             <ul>
               <li>
                 <div class="box-b"> ChatRoom</div>
-                  <% @favorites.each do |favorite| %></br>
+                  <% @favorites.each do |favorite| %><br />
                     <%= favorite.chat.customer.nickname %>:
                     <%= link_to chat_path(favorite.chat) do %>
                     <%= favorite.chat.title %>
                     <% end %>
                     </br>
                  <% end %>
-                 </br>
+                 <br />
               </li>
               <li>
                 <div class="box-b">DiscussionRoom</div>
-                  <% @bookmarks.each do |bookmark| %></br>
+                  <% @bookmarks.each do |bookmark| %><br />
                     <%= bookmark.discussion.customer.nickname %>:
                     <%= link_to discussion_path(bookmark.discussion) do %>
                       <%= bookmark.discussion.title %>
                     <% end %>
-                    </br>
+                    <br />
                   <% end %>
               </li>
             </ul>

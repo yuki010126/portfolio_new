@@ -1,34 +1,35 @@
 <div class="discussion-box">
   <div class="discussion-item-1">
     <h1><%= @discussion.title %></h1>
-            スレッド開設日:<%= @discussion.created_at.strftime("%Y/%m/%d ") %></br>
-            スレッドオーナー:<%= @discussion.customer.nickname %></br>
+            スレッド開設日:<%= @discussion.created_at.strftime("%Y/%m/%d ") %><br />
+            スレッドオーナー:<%= @discussion.customer.nickname %><br />
           <% @discussion.categories.each do |category| %>
-            カテゴリ:<%= category.name %></br>
+            カテゴリ:<%= category.name %><br />
           <% end %>
             <% if customer_signed_in? && @discussion.customer_id == current_customer.id %>
-              <%= link_to "タイトルを編集する", edit_discussion_path(@discussion) %></br>
-              <%= link_to "スレッドを削除する", discussion_path(@discussion), method: :delete, data: { confirm: "本当に削除しますか？" } %></br>
+              <%= link_to "タイトルを編集する", edit_discussion_path(@discussion) %><br />
+              <%= link_to "スレッドを削除する", discussion_path(@discussion), method: :delete, data: { confirm: "本当に削除しますか？" } %><br />
             <% end %>
-          <%= link_to "スレッド一覧に戻る", discussions_path %></br>
+          <%= link_to "スレッド一覧に戻る", discussions_path %><br />
             <% if @discussion.bookmarked_by?(current_customer) %>
-              <%= link_to "ブックマークを外す", discussion_bookmarks_path(@discussion), method: :delete   %>
+              <%= link_to "ブックマークを外す", discussion_bookmarks_path(@discussion), method: :delete %>
             <% else %>
-              <%= link_to "ブックマーク", discussion_bookmarks_path(@discussion), method: :discussion  %>
+              <%= link_to "ブックマーク", discussion_bookmarks_path(@discussion), method: :discussion %>
             <% end %>
 
         <%= form_for @opinion, url: discussion_opinions_path(@discussion, @opinion), data: {remote: true} do |f| %>
           <div class="discussion-item-2-1">
-            ニックネーム:</br> <%= f.text_field :nickname %> <br>
+            ニックネーム:</br> <%= f.text_field :nickname %><br />
           </div>
           <div class="discussion-item-2-2">
-            コメント:</br> <%= f.text_area :content, :size=>"40x20" %> <br>
+            コメント:</br> <%= f.text_area :content, :size=>"40x20" %><br />
+            <!--<%#= text_url_to_link(h(opinion.url)).html_safe %>-->
             <%= f.submit "書き込む", class: "button"  %>
             <div class="api"></br>【注意】<%= link_to "内容よっては書き込みが行えません！", answer_path %>
             </div>
-           </div>
+          </div>
         <% end %>
-    </div>
+  </div>
 
   <div class="discussion-item-3">
      <% @opinions.each_with_index do |opinion, index| %>
@@ -38,7 +39,7 @@
        <!--スコア<%#= comment.score %>-->
        <% if customer_signed_in? && opinion.customer_id == current_customer.id %>
          <%= link_to "削除する", discussion_opinion_path(@discussion, opinion), method: :delete, remote: true  %>
-       <% end %></br>
+       <% end %><br />
          <%#= simple_format(h(comment.content).html_safe) %>
        <%= sanitize(opinion.content.gsub("\n", "<br>")) %>
        <hr>

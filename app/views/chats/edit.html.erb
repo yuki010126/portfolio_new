@@ -8,10 +8,10 @@
 
   <%= form_with model: @chat ,local: true do |f| %>
     <div class="chat-2">
-      タイトル: <%= f.text_field :title %> <br>
+      タイトル: <%= f.text_field :title %><br />
     </div>
     <div class="chat-3">
-      作成者名: <%= f.text_field :nickname %> <br>
+      作成者名: <%= f.text_field :nickname %><br />
     </div>
     <div class="chat-5-1">
       <%= f.submit "送信", class: "button"  %>
