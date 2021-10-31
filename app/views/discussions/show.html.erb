@@ -22,7 +22,7 @@
             ニックネーム:</br> <%= f.text_field :nickname %><br />
           </div>
           <div class="discussion-item-2-2">
-            コメント:</br> <%= f.text_area :content, :size=>"40x20" %><br />
+            コメント:</br> <%= f.text_area :content, :size=>"33x10" %><br />
             <!--<%#= text_url_to_link(h(opinion.url)).html_safe %>-->
             <%= f.submit "書き込む", class: "button"  %>
             <div class="api"></br>【注意】<%= link_to "内容よっては書き込みが行えません！", answer_path %>
