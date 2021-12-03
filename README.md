@@ -17,9 +17,9 @@
 
 ### 主な利用シーン
 【ChatRoom】<br />
-挑戦に疲れた時、周りの協力が得られない時、自分のことが分からない時</br>
-【DiscussionRoom・MemoRoom】</br>
-新しいことを始めたい時、インプットしたい時、ひらめきをアウトプットしたい時</br>
+挑戦に疲れた時、周りの協力が得られない時、自分のことが分からない時<br />
+【DiscussionRoom・MemoRoom】<br />
+新しいことを始めたい時、インプットしたい時、ひらめきをアウトプットしたい時<br />
 
 ## 設計書
 ER図は<a href="https://app.diagrams.net/#G1fVGmt6MJCGIC8_UOwS4GSAseVQ4rlpkW">こちらから</a><br />
