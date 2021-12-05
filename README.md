@@ -25,7 +25,7 @@
 ER図は<a href="https://app.diagrams.net/#G1fVGmt6MJCGIC8_UOwS4GSAseVQ4rlpkW">こちらから</a><br />
 UIFlowsは<a href="https://app.diagrams.net/#G1cbE6Ss6uFuOe8WN2g7eEZ5hQvagFIxhn">こちらから。</a><br />
 テーブル定義書は<a href="https://docs.google.com/spreadsheets/d/1EvojL-LSdXeTZD9N0vY83vF4L45-2R1y/edit#gid=1739957604">こちらから。</a><br />
-アプリケーション詳細設計<a href="https://docs.google.com/spreadsheets/d/1tz28Tek8td9ZrUmOrVk29rdVahB8naaOx4ibakgKBG0/edit#gid=1968271425">こちらから。<br />
+アプリケーション詳細設計<a href="https://docs.google.com/spreadsheets/d/1tz28Tek8td9ZrUmOrVk29rdVahB8naaOx4ibakgKBG0/edit#gid=1968271425">こちらから。<br/>
 
 ## チャレンジ要素一覧
 チャレンジ要素は<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0">こちらから。</a></h4>
