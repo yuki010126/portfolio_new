@@ -31,7 +31,7 @@ UIFlowsは<a href="https://app.diagrams.net/#G1cbE6Ss6uFuOe8WN2g7eEZ5hQvagFIxhn"
 チャレンジ要素は<a href="https://docs.google.com/spreadsheets/d/1pFBE-2JkkE8b5OFeX9B8xeG3ckhAADF045zdc9ViGtE/edit#gid=0">こちらから。</a></h4>
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Linux(CentOS)<br />
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
