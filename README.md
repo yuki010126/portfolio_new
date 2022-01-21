@@ -32,7 +32,7 @@ UIFlowsは<a href="https://app.diagrams.net/#G1cbE6Ss6uFuOe8WN2g7eEZ5hQvagFIxhn"
 
 ## 開発環境
 - OS：Linux(CentOS)<br />
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- 言語：HTML,CSS,JavaScript,Ruby,SQL<br />
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
